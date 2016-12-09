@@ -1,0 +1,4 @@
+#将一下代码添加到c:/Windows/System32/drivers/etc/hosts
+127.0.0.1 a.b #ipv4
+::1 #ipv6
+
