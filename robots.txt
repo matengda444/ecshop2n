@@ -1,0 +1,42 @@
+#禁止百度
+User-agent: Baiduspider
+Disallow: /
+User-agent: Baidu*
+Disallow: /
+#禁止360
+User-agent: 360Spider
+Disallow: /
+User-agent: 360*
+Disallow: /
+#禁止uc
+User-agent: YisouSpider
+Disallow: /
+User-agent: Yisou*
+Disallow: /
+#禁止搜搜
+User-agent: Sosospider
+Disallow: /
+User-agent: Soso*
+Disallow: /
+#禁止搜狗
+User-agent: Sogou web Spdier
+Disallow: /
+User-agent: Sogou*
+Disallow: /
+#禁止有道
+User-agent: YodaoBot
+Disallow: /
+User-agent: Yodao*
+Disallow: /
+#禁止雅虎
+User-agent: Yahoo! Slurp
+Disallow: /
+User-agent: Yahoo*
+Disallow: /
+#禁止msn
+User-agent: MSNbot
+Disallow: /
+User-agent: MSN*
+Disallow: /
+User-agent: psbot
+Disallow: /
