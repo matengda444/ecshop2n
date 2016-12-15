@@ -5,7 +5,8 @@ use Think\controller;
 
 class TypeController extends Controller //添加商品类型
 {
-    public function add() {
+    public function add() 
+    {
         if (IS_POST) {
             $typemodel = D('Type');
             if ($typemodel->create(I('post'), 1)) { //在创建数据验证，在创建数据验证时，完成自动验证功能。
@@ -21,5 +22,12 @@ class TypeController extends Controller //添加商品类型
             }
         }
     $this->display(); //输出验证失败后的错误提示信息。
+    }
+    public function lst() //list是关键字
+    {
+        $typemodel = D('Type');
+        $typedata = $typemodel->select();
+        $this->assign('typedata', $typedata);
+        $this->display();
     }
 }
