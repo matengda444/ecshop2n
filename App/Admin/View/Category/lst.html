@@ -46,7 +46,7 @@
     <td width="10%" align="right"><span>50</span></td>
     <td width="24%" align="center">
       <a href="#">转移商品</a> |
-      <a href="#">编辑</a> |
+      <a href="<?php echo U('update', array('cat_id'=>$v['id']))?>">编辑</a> |
       <a href="<?php echo U('del', array('cat_id'=>$v['id']))?>" onclick="return confirm('你确定要删除吗?')" title="删除">删除</a>
     </td>
 </tr>
