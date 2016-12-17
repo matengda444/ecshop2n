@@ -45,4 +45,18 @@ class CategoryController extends Controller
             $this->error('删除失败');
         }
     }
+    public function update()
+    {
+        $cat_id = $_GET['cat_id']+0;
+        $catemodel = D('Category');
+        $info = $catemodel->find($cat_id);
+        $this->assign('info',$info);
+        $ids = $catemodel->getChildId($cat_id);
+        $ids[] = $cat_id;
+        $this->assign('ids', $ids);
+        $catemodel = D('Category');
+        $catedata = $catemodel->getTree();
+        $this->assign('catedata',$catedata);
+        $this->display();
+    }
 }
