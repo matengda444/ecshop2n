@@ -47,11 +47,11 @@
     <td width="24%" align="center">
       <a href="#">转移商品</a> |
       <a href="#">编辑</a> |
-      <a href="#" title="移除">移除</a>
+      <a href="<?php echo U('del', array('cat_id'=>$v['id']))?>" onclick="return confirm('你确定要删除吗?')" title="删除">删除</a>
     </td>
 </tr>
-  <?php }?>
-  </table>
+<?php }?>
+</table>
 </div>
 </form>
 </body>
