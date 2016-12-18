@@ -47,12 +47,29 @@ class CategoryController extends Controller
     }
     public function update()
     {
-        $cat_id = $_GET['cat_id']+0;
         $catemodel = D('Category');
+        if (IS_POST) {
+            if ($catemodel->create()) {
+                $parent_id = I('post.parent_id');
+                $id = I('post.id');
+                $ids = $catemodel->getChildId($id);
+                $ids[] = $id;
+                if (in_array($parent_id, $ids)) {
+                    $this->error('不能把自己的子孙栏目当自己的父栏目');
+                }
+                if ($catemodel->save() !== false) {
+                    $this->success('修改成功', U('lst'));
+                    exit;
+                } else {
+                    $this->error('修改失败');
+                }
+            } else {
+                $this->error($catemodel->getError());
+            }
+        }
+        $cat_id = $_GET['cat_id']+0;
         $info = $catemodel->find($cat_id);
         $this->assign('info',$info);
-        $ids = $catemodel->getChildId($cat_id);
-        $ids[] = $cat_id;
         $this->assign('ids', $ids);
         $catemodel = D('Category');
         $catedata = $catemodel->getTree();
