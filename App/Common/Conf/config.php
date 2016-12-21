@@ -14,4 +14,6 @@ return array(
     'UPLOAD_ROOT_PATH'      =>  './Public/Uploads/',    //上传文件根路径   (.)基于入口文件位置
     'UPLOAD_MAX_FILESIZE'   =>  '10M',   //上传文件最大值
     'UPLOAD_ALLOW_EXT'      =>  array('jpeg', 'jpg', 'png', 'gif', 'bmp'),    //上传文件类型
+    //'LOG_RECORD'            =>  true,
+    //'LOG_LEVEL'             =>  'EMERG,ALERT,CRIT,ERR'
 );
