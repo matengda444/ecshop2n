@@ -1,0 +1,41 @@
+<table>
+    <?php
+        foreach ($attrdata as $v) {
+            if ($v['attr_type'] == 0) {
+                if ($v['attr_input_type'] == 0) {
+                    echo "<tr><td>".$v['attr_name']."</td></td>";
+                    echo "<input type='text' name=''/>";
+                    echo "</td></tr>";
+                } else {
+                    echo "<tr><td>".$v['attr_name']."</td></td>";
+                    echo "<select name=''>";
+                    $attrs = $v['attr_value']; //返回的是一个字符串
+                    $attrs = explode(',',$attrs);
+                    foreach ($attrs as $v1) {
+                        echo "<option value='".$v1."'>".$v1."</option>";
+                    }
+                    echo "</select>";
+                    echo "</td></tr>";
+                }
+            } else {
+            if ($v['attr_type'] == 0) {
+                if ($v['attr_input_type'] == 0) {
+                    echo "<tr><td>".$v['attr_name']."</td></td>";
+                    echo "<input type='text' name=''/>";
+                    echo "</td></tr>";
+                } else {
+                    echo "<tr><td>".$v['attr_name']."</td></td>";
+                    echo "<select name=''>";
+                    $attrs = $v['attr_value']; //返回的是一个字符串
+                    $attrs = explode(',',$attrs);
+                    foreach ($attrs as $v1) {
+                        echo "<option value='".$v1."'>".$v1."</option>";
+                    }
+                    echo "</select>";
+                    echo "</td></tr>";
+                }
+            }
+        }
+        }
+    ?>
+</table>
