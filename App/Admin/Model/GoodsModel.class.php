@@ -48,7 +48,7 @@ class GoodsModel extends Model
             $goods_sn = 'sn_'.uniqid(); //uniqid()该函数会生成一个唯一的字符串
             $data['goods_sn'] = $goods_sn;
         }
-        if ($_FILES['goods_img']['error'] == 0) {
+        if ($_FILES['goods_img']['error'] != 4) {
             $res =oneFileupload('goods_img', 'Goods', $arr=array(array(100,100), array(250,250)));
             if ($res['status'] == 0) {
                 $data['goods_ori'] = $res['info'][0];
