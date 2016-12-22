@@ -24,6 +24,17 @@ class GoodsController extends Controller
         $catemodel = D('Category');
         $catedata = $catemodel->getTree();
         $this->assign('catedata', $catedata);
+        $typemodel = D('Type');
+        $typedata = $typemodel->select();
+        $this->assign('typedata',$typedata);
+        $this->display();
+    }
+    public function showattr()
+    {
+        $type_id = $_GET['type_id'];
+        $attrmodel = D('Attribute');
+        $attrdata = $attrmodel->where("type_id=$type_id")->select();
+        $this->assign('attrdata', $attrdata);
         $this->display();
     }
     public function lst()
