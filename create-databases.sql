@@ -41,3 +41,10 @@ create table e2_goods(
     goods_desc varchar(256) not null default '' comment '商品描述'
 )engine myisam charset utf8;
 --创建一个商品表
+create table e2_goods_attr(
+    id int unsigned primary key auto_increment,
+    goods_id int not null comment '商品id',
+    goods_attr_id smallint not null comment '属性id',
+    attr_value varchar(32) not null comment '属性值'
+)engine myisam charset utf8;
+--创建属性值表
