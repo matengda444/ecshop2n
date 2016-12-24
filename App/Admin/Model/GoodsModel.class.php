@@ -60,5 +60,29 @@ class GoodsModel extends Model
             }
         }
     }
+    protected function _after_insert($data,$options)
+    {
+        $attr = I('post.attr');
+        //p($attr);
+        //p($data);
+        //p($options);
+        $goods_id = $data['id'];
+        foreach ($attr as $k => $v) {
+            if (is_array($v)) {
+                foreach ($v as $v1) {
+                    M("GoodsAttr")->add(array(
+                        'goods_id' => $goods_id,
+                        'goods_attr_id' => $k,
+                        'attr_value' => $v1
+                    ));
+                } else {
+                    M("GoodsAttr")->add(array(
+                        'goods_id' => $goods_id,
+                        'goods_attr_id' => $k,
+                        'attr_value' => $v
+                    ))
+                }
+            }
+        }
+    }
 }
-
