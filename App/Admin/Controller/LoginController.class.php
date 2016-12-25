@@ -11,12 +11,15 @@ class LoginController extends Controller
         if (IS_POST) {
             $adminmodel = D('Admin');
             if ($adminmodel->validate($adminmodel->_login_validate)->create()) {
-                echo 'ok';
-            } else {
+                if ($adminmodel->login()) {
+                    //登陆成功
+                    $this->success('登陆成功', U('Index/index'));
+                    exit;
+                }
+            }
                 $this->error($adminmodel->getError());
             }
-        }
-        $this->display();
+            $this->display();
     }
     public function authcode()
     {

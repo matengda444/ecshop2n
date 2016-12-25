@@ -25,4 +25,23 @@ class AdminModel extends Model
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
     }
+    public function login() //管理员登陆密码
+    {
+        // 接收传递的用户名和密码
+        $admin_name = I('post.admin_name');
+        $password = I('post.password');
+        // 根据用户名找出密码,和输入的密码进行匹配
+        $info = $this->where("admin_name = '$admin_name'")->find();
+        if (!empty($info)) { //有该用户
+            //密码判断
+            if ($info['password'] == md5(md5($password).$info['salt'])) {
+                //正确
+                $_SESSION['admin_name'] = $admin_name;
+                $_SESSION['admin_id'] = $info['id'];
+                return true;
+            }
+        }
+        $this->error = '用户名或密码错误';
+        return false;
+    }
 }
