@@ -8,6 +8,14 @@ class LoginController extends Controller
     //显示登陆页面
     public function login()
     {
+        if (IS_POST) {
+            $adminmodel = D('Admin');
+            if ($adminmodel->validate($adminmodel->_login_validate)->create()) {
+                echo 'ok';
+            } else {
+                $this->error($adminmodel->getError());
+            }
+        }
         $this->display();
     }
     public function authcode()
