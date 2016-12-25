@@ -1,7 +1,7 @@
 <?php
 namespace Admin\Controller;
 
-use Think\controller;
+use Think\Controller;
 
 class TypeController extends Controller //添加商品类型
 {
