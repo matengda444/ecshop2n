@@ -48,3 +48,34 @@ create table e2_goods_attr(
     attr_value varchar(32) not null comment '属性值'
 )engine myisam charset utf8;
 --创建属性值表
+create table e2_admin(
+    id int unsigned primary key auto_increment,
+    admin_name varchar(32) not null comment '管理员名称',
+    password char(32) not null comment '管理员密码',
+    salt varchar(10) not null comment '盐'
+)engine myisam charset utf8;
+--创建一个管理员表
+create table e2_role(
+    id int unsigned primary key auto_increment,
+    role_name varchar(32) not null comment '角色名称'
+)engine myisam charset utf8;
+--创建一个角色表
+create table e2_privilege(
+    id int unsigned primary key auto_increment,
+    priv_name varchar(32) not null comment '权限名称',
+    parent_id int not null default 0 comment '上级权限id',
+    module_name varchar(32) not null default '' comment '权限对应模块',
+    controller_name varchar(32) not null default '' comment '权限对应控制器',
+    action_name varchar(32) not null default '' comment '权限对应方法'
+)engine myisam charset utf8;
+--创建一个权限表
+create table  e2_role_privilege(
+    role_id int unsigned not null comment '角色id',
+    priv_id int unsigned not null comment '权限id'
+)engine myisam charset utf8;
+--创建一个角色与权限的中间表
+create table e2_admin_role(
+    admin_id int unsigned not null comment '管理员id',
+    role_id int unsigned not null comment '橘色id'
+)engine myisam charset utf8;
+--创建一个管理员与角色的中间表
