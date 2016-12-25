@@ -2,6 +2,7 @@
 namespace Admin\Model;
 
 use Think\Model;
+
 class GoodsModel extends Model
 {
     // protected function _before_insert(&$data, $options) //入库之前操作
