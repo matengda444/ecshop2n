@@ -38,7 +38,7 @@ if (window.parent != window)
 </script>
 </head>
 <body style="background: #278296">
-<form method="post" action="privilege.php" name='theForm' onsubmit="return validate()">
+<form method="post" action="__ACTION__" name='theForm' onsubmit="return validate()">
   <table cellspacing="0" cellpadding="0" style="margin-top: 100px" align="center">
   <tr>
     <td><img src="__PUBLIC__/Admin/images/login.png" width="178" height="256" border="0" alt="ECSHOP" /></td>
@@ -46,7 +46,7 @@ if (window.parent != window)
       <table>
       <tr>
         <td>管理员姓名：</td>
-        <td><input type="text" name="username" /></td>
+        <td><input type="text" name="admin_name" /></td>
       </tr>
       <tr>
         <td>管理员密码：</td>
@@ -54,7 +54,7 @@ if (window.parent != window)
       </tr>
             <tr>
         <td>验证码：</td>
-        <td><input type="text" name="captcha" class="capital" /></td>
+        <td><input type="text" name="checkcode" class="capital" /></td>
       </tr>
       <tr>
       <td colspan="2" align="right"><img src="__CONTROLLER__-authcode" width="145" height="20" alt="CAPTCHA" border="1" onclick="this.src='__CONTROLLER__-authcode-'+Math.random()" style="cursor: pointer;" title="看不清？点击更换另一个验证码。" />
