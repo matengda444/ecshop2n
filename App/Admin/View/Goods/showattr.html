@@ -3,12 +3,12 @@
         foreach ($attrdata as $v) {
             if ($v['attr_type'] == 0) {
                 if ($v['attr_input_type'] == 0) {
-                    echo "<tr><td>".$v['attr_name']."</td></td>";
-                    echo "<input type='text' name=''/>";
+                  echo "<tr><td>".$v['attr_name']."</td></td>";
+                    echo "<input type='text' name='attr[".$v['id']."]'/>";
                     echo "</td></tr>";
                 } else {
                     echo "<tr><td>".$v['attr_name']."</td></td>";
-                    echo "<select name=''>";
+                    echo "<select name='attr[".$v['id']."]'>";
                     $attrs = $v['attr_value']; //返回的是一个字符串
                     $attrs = explode(',',$attrs);
                     foreach ($attrs as $v1) {
@@ -26,7 +26,7 @@
                 } else {
                     echo "<tr><td><a href='javascript:'
                     onclick='copythis(this)'>[+]</a>".$v['attr_name']."</td></td>";
-                    echo "<select name=''>";
+                    echo "<select name='attr[".$v['id']."][]>";
                     $attrs = $v['attr_value']; //返回的是一个字符串
                     $attrs = explode(',', $attrs);
                     foreach ($attrs as $v1) {
