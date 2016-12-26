@@ -13,6 +13,20 @@ class RoleController extends AuthController
 {
     public function add()
     {
+        //添加角色
+        if (IS_POST) {
+            $rolemodel = D('Role');
+            if ($rolemodel->add()) {
+                $this->success('添加成功', U('lst'));
+                exit;
+            } else {
+                $this->error('添加失败');
+            }
+        } else {
+            $this->error($rolemodel->getError());
+        }
+        }
+        //取出权限数据,给角色分配权限
         $privmodel = D('Privilege');
         $privdata = $privmodel->getTree();
         $this->assign('privdata', $privdata);
