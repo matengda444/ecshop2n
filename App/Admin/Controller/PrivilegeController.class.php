@@ -13,6 +13,23 @@ class PrivilegeController extends AuthController
 {
     public function add()
     {
+        if (IS_POST) {
+            $privmodel = D('Privilege');
+            if ($privmodel->create()) {
+                if ($privmodel->add()) {
+                    $this->success('添加成功', U('lst'));
+                    exit;
+                } else {
+                    $this->error('添加失败');
+                }
+            } else {
+                $this->error($privmodel->getError());
+            }
+        }
         $this->display();
+    }
+    public function lst()
+    {
+        echo 'ok';
     }
 }
