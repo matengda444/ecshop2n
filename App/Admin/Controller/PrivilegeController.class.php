@@ -13,8 +13,8 @@ class PrivilegeController extends AuthController
 {
     public function add()
     {
+        $privmodel = D('Privilege');
         if (IS_POST) {
-            $privmodel = D('Privilege');
             if ($privmodel->create()) {
                 if ($privmodel->add()) {
                     $this->success('添加成功', U('lst'));
@@ -26,10 +26,15 @@ class PrivilegeController extends AuthController
                 $this->error($privmodel->getError());
             }
         }
+        $privdata = $privmodel->getTree();
+        $this->assign('privdata', $privdata);
         $this->display();
     }
     public function lst()
     {
-        echo 'ok';
+        $privmodel = D('Privilege');
+        $privdata = $privmodel->getTree();
+        $this->assign('privdata', $privdata);
+        $this->display();
     }
 }

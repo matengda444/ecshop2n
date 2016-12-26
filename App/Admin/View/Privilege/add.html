@@ -29,6 +29,10 @@
           <td>
               <select name="parent_id">
                   <option value="0">顶级权限</option>
+                  <?php foreach ($privdata as $v) { ?>
+                      <option value="<?php echo $v['id'] ?>">
+                          <?php echo str_repeat('==', $v['lev']).$v['priv_name'] ?></option>
+                  <?php } ?>
               </select>
           </td>
       </tr>
