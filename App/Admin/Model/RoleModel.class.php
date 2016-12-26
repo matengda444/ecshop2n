@@ -16,8 +16,16 @@ class RoleModel extends Model
     );
     protected function _after_insert($data, $options)
     {
-        p($data);
-        p($options);
-        exit;
+//        p($data);
+//        p($options);
+//        exit;
+        $role_id = $data['id'];
+        $priv_ids = I('post.priv_id');//返回的是一维数组
+        foreach ($priv_ids as $v) {
+            M('RolePrivilege')->add(array(
+                'role_id' => $role_id,
+                'priv_id' => $v
+            ));
+    }
     }
 }
