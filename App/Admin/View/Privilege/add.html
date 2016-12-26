@@ -19,12 +19,38 @@
   <form action="__ACTION__" method="post" name="theForm" enctype="multipart/form-data">
   <table width="100%" id="general-table">
       <tr>
-        <td class="label">类型名称:</td>
+        <td class="label">权限名称:</td>
         <td>
-          <input type='text' name='type_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          <input type='text' name='priv_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
         </td>
       </tr>
       <tr>
+          <td class="label">上级权限:</td>
+          <td>
+              <select name="parent_id">
+                  <option value="0">顶级权限</option>
+              </select>
+          </td>
+      </tr>
+      <tr>
+      <tr>
+          <td class="label">对应模块名称:</td>
+          <td>
+              <input type='text' name='module_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">对应控制器名称:</td>
+          <td>
+              <input type='text' name='controller_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">对应方法名称:</td>
+          <td>
+              <input type='text' name='action_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          </td>
+      </tr>
         <td class="label"></td>
         <td><input type="submit" value=" 确定 " /><input type="reset" value=" 重置 " /></td>
       </tr>
