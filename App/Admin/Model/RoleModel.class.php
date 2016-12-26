@@ -14,4 +14,10 @@ class RoleModel extends Model
     protected $_validate = array(
         array('role_name', 'require', '角色名称不能为空')
     );
+    protected function _after_insert($data, $options)
+    {
+        p($data);
+        p($options);
+        exit;
+    }
 }
