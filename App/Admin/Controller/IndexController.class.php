@@ -3,7 +3,7 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class IndexController extends Controller
+class IndexController extends AuthController
 {
     public function index()
     {

@@ -3,7 +3,7 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class GoodsController extends Controller
+class GoodsController extends AuthController
 {
     public function add()
     {

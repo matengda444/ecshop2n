@@ -3,7 +3,7 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class TypeController extends Controller //添加商品类型
+class TypeController extends AuthController //添加商品类型
 {
     public function add() 
     {
