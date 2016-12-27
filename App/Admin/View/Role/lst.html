@@ -36,7 +36,7 @@
     <td width="24%" align="center">
       <a href="<?php echo U('Attribute/lst',array('type_id'=>$v['id']))?>">属性列表</a> |
       <a href="#">编辑</a> |
-      <a href="#" title="移除">移除</a>
+      <a href="<?php echo U('delete', array('id' => $v['id'])) ?> title="删除">删除</a>
     </td>
   </tr>
    <?php }?> 

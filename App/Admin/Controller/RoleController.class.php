@@ -45,4 +45,21 @@ class RoleController extends AuthController
         $this->assign('roledata', $roledata);
         $this->display();
     }
+    public function delete()
+    {
+        //接受传递的角色id
+        $role_id = $_GET['id']+0;
+        //判断角色是否是管理员
+        $info = M('AdminRole')->where("role_id = $role_id")->find();
+        if ($info) {
+            $this->error('该角色是管理员不能被删除');
+        }
+        $rolemodel = D('Role');
+        if ($rolemodel->delete($role_id) !== false) {
+            $this->success('删除成功', U('lst'));
+            exit;
+        } else {
+            $this->error('删除失败');
+        }
+    }
 }

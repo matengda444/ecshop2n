@@ -28,4 +28,9 @@ class RoleModel extends Model
             ));
     }
     }
+    protected function _after_delete($data, $options)
+    {
+        $role_id = $options['where']['id'];
+        M("RolePrivilege")->where("role_id = $role_id")->delete();
+    }
 }
