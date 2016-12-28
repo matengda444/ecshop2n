@@ -11,7 +11,7 @@
 
 <h1>
 <span class="action-span"><a href="catelist.html">商品分类</a></span>
-<span class="action-span1"><a href="#">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 添加分类 </span>
+<span class="action-span1"><a href="#">ECSHOP 管理中心</a> </span><span id="search_id" class="action-span1"> - 添加管理员 </span>
 <div style="clear:both"></div>
 </h1>
 
@@ -19,10 +19,33 @@
   <form action="__ACTION__" method="post" name="theForm" enctype="multipart/form-data">
   <table width="100%" id="general-table">
       <tr>
-        <td class="label">类型名称:</td>
+        <td class="label">管理员名称:</td>
         <td>
-          <input type='text' name='type_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          <input type='text' name='admin_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
         </td>
+      </tr>
+      <tr>
+          <td class="label">密码:</td>
+          <td>
+              <input type='text' name='password' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">确认密码:</td>
+          <td>
+              <input type='text' name='rpassword' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          </td>
+      </tr>
+      <tr>
+          <td class="label">所属角色:</td>
+          <td>
+              <select name="role_id">
+                  <option>选择角色</option>
+                  <?php foreach ($roledata as $v) { ?>
+                  <option value="<?php echo $v['id'] ?>"><?php echo $v['role_name'] ?></option>
+                  <?php } ?>
+              </select>
+          </td>
       </tr>
       <tr>
         <td class="label"></td>
