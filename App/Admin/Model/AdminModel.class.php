@@ -25,6 +25,14 @@ class AdminModel extends Model
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
     }
+    //使用静态方式来完成验证
+    protected $_validate = array(
+        array('admin_name', 'require', '管理员名称不为空'),
+        array('admin_name', '', '管理员已经存在', 1, 'unique'),
+        array('password', '6,12', '密码长度要在6到12位之间', 1, 'length'),
+        array('rpassword', 'password', '两次密码不一致', 1, 'confirm'),
+        array('role_id', 'number', '要选择角色')
+    );
     public function login() //管理员登陆密码
     {
         // 接收传递的用户名和密码
