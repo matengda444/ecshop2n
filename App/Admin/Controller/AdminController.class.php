@@ -46,4 +46,49 @@ class AdminController extends AuthController
         $this->assign('admindata', $admindata);
         $this->display();
     }
+    public function update()
+    {
+        //取出管理员的基本信息
+        $adminmodel = D('Admin');
+        if (IS_POST) {
+            if ($adminmodel->create()) {
+                //判断是否修改密码
+                $pwd = I('post.password');
+                if (!empty($pwd)) {
+                    //重设密码
+                    $salt = substr(uniqid(), -6);
+                    $pwd = I('post.password');
+                    $adminmodel->password = md5(md5($pawd) . $salt);
+                    $adminmodel->salt = $salt;
+                } else {
+                    //使用原来的密码,把数据对象里的password去掉,表示不修改密码值
+                    unset($adminmodel->password);
+                }
+                if ($adminmodel->save() !== falese) {
+                    $this->success('修改成功', U('lst'));
+                    exit;
+                } else {
+                    $this->error('修改失败');
+                }
+            } else {
+                $this->error($adminmodel->getError());
+            }
+        }
+        $id = $_GET['id']+0;
+        //判断提交的id合法性
+        if ($id == 1) {
+            $this->error('参数错误');
+        }
+        $info = $adminmodel->find($id);
+        //查找不到管理员
+        if (!$info) {
+            $this->error('参数错误');
+        }
+        $this->assign('info',$info);
+        //取出角色数据
+        $rolemodel = D('Role');
+        $roledata = $rolemodel->select();
+        $this->assign('roledata', $roledata);
+        $this->display();
+    }
 }

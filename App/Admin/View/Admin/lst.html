@@ -34,13 +34,12 @@
     <td width="40%"><?php echo $v['admin_name']?></td>
           <td width="40%"><?php echo $v['role_name']?></td>
     <td width="24%" align="center">
-      <a href="<?php echo U('Attribute/lst',array('type_id'=>$v['id']))?>">属性列表</a> |
-      <a href="#">编辑</a> |
+        <a href="<?php echo U('update', array('id' => $v['id'])) ?>">编辑</a> |
       <a href="#" title="移除">移除</a>
     </td>
   </tr>
-   <?php }?> 
-    
+   <?php }?>
+
   </table>
 </div>
 </form>

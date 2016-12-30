@@ -26,16 +26,16 @@ class AdminModel extends Model
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
     }
-
     //使用静态方式来完成验证
+    //$_validate属性的验证是通过create方法来完成数据验证的
     protected $_validate = array(
         array('admin_name', 'require', '管理员名称不为空'),
         array('admin_name', '', '管理员已经存在', 1, 'unique'),
-        array('password', '6,12', '密码长度要在6到12位之间', 1, 'length'),
-        array('rpassword', 'password', '两次密码不一致', 1, 'confirm'),
+        array('password', '6,12', '密码长度要在6到12位之间', 1, 'length', 1),
+        array('password', '6,12', '密码长度要在6到12位之间', 2, 'length', 2),
+        array('rpassword', 'password', '两次密码不一致', 2, 'confirm'),
         array('role_id', 'number', '要选择角色')
     );
-
     public function login() //管理员登陆密码
     {
         // 接收传递的用户名和密码
@@ -60,6 +60,19 @@ class AdminModel extends Model
         $admin_id = $data['id'];
         $role_id = I('post.role_id')+0;
         M('AdminRole')->add(array(
+            'admin_id' => $admin_id,
+            'role_id' => $role_id
+        ));
+    }
+    protected function _after_update($data, $options)
+    {
+        //给管理员修改角色,直接操作的表是e2_admin_role
+        $admin_id = $options['where']['id'];
+        //删除旧数据
+        M("AdminRole")->where("admin_id = $admin_id")->delete();
+        //重新插入数据
+        $role_id = I('post.role_id');//接受传递的角色id
+        M("AdminRole")->add(array(
             'admin_id' => $admin_id,
             'role_id' => $role_id
         ));

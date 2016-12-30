@@ -21,13 +21,13 @@
       <tr>
         <td class="label">管理员名称:</td>
         <td>
-          <input type='text' name='admin_name' maxlength="20" value='' size='27' /> <font color="red">*</font>
+          <input type='text' name='admin_name' maxlength="20" value="<?php echo $info['admin_name'] ?>" size='27' /> <font color="red">*</font>
         </td>
       </tr>
       <tr>
           <td class="label">密码:</td>
           <td>
-              <input type='text' name='password' maxlength="20" value='' size='27' /> <font color="red">*</font>
+              <input type='text' name='password' maxlength="20" value='' size='27' /> <font color="red">不输入密码则使用原密码</font>
           </td>
       </tr>
       <tr>
@@ -48,6 +48,7 @@
           </td>
       </tr>
       <tr>
+          <input type="hidden" name="id" value="<?php  echo $info['id'] ?>" />
         <td class="label"></td>
         <td><input type="submit" value=" 确定 " /><input type="reset" value=" 重置 " /></td>
       </tr>
