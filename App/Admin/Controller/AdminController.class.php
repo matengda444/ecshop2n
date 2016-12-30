@@ -37,4 +37,13 @@ class AdminController extends AuthController
         $this->assign('roledata', $roledata);
         $this->display();
     }
+    public function lst()
+    {
+        $adminmodel = D('Admin');
+        //取出普通管理員
+        $admindata = $adminmodel->field("a.*,c.role_name")->join("a left join e2_admin_role b 
+        on a.id=b.admin_id left join e2_role c on b.role_id=c.id")->where("a.id!=1")->select();
+        $this->assign('admindata', $admindata);
+        $this->display();
+    }
 }
