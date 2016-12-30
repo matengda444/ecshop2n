@@ -14,6 +14,23 @@ class AdminController extends AuthController
     //添加管理员
     public function add ()
     {
+        if (IS_POST) {
+            $adminmodel = D('Admin');
+            if ($adminmodel->create()) {
+                //定义一个盐,该盐是随机生成的
+                $salt = substr(uniqid(), -6);
+                $pwd = I('post.password'); // 接受明文密码
+                $adminmodel->password = md5(md5($pwd).$salt);
+                $adminmodel->salt = $salt;
+                if ($adminmodel->add()) {
+                    $this->success('添加成功', U('lst'));
+                } else {
+                    $this->error('添加失败');
+                }
+            } else {
+                $this->error($adminmodel->getError());
+            }
+        }
         //取出角色数据
         $rolemodel = D('Role');
         $roledata = $rolemodel->select();

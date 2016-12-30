@@ -19,12 +19,14 @@ class AdminModel extends Model
         array('checkcode', 'check_verify', '验证码不能为空', 1, 'callback') //check_verify和下方的check_verify对应,
         //callback表示该条规则要使用当前类的一个方法来完成验证
     );
+
     protected function check_verify($code, $id = '')
     {
         //验证,验证码
         $verify = new \Think\Verify();
         return $verify->check($code, $id);
     }
+
     //使用静态方式来完成验证
     protected $_validate = array(
         array('admin_name', 'require', '管理员名称不为空'),
@@ -33,6 +35,7 @@ class AdminModel extends Model
         array('rpassword', 'password', '两次密码不一致', 1, 'confirm'),
         array('role_id', 'number', '要选择角色')
     );
+
     public function login() //管理员登陆密码
     {
         // 接收传递的用户名和密码
@@ -42,7 +45,7 @@ class AdminModel extends Model
         $info = $this->where("admin_name = '$admin_name'")->find();
         if (!empty($info)) { //有该用户
             //密码判断
-            if ($info['password'] == md5(md5($password).$info['salt'])) {
+            if ($info['password'] == md5(md5($password) . $info['salt'])) {
                 //正确
                 $_SESSION['admin_name'] = $admin_name;
                 $_SESSION['admin_id'] = $info['id'];
@@ -51,5 +54,14 @@ class AdminModel extends Model
         }
         $this->error = '用户名或密码错误';
         return false;
+    }
+    protected function _after_insert($data, $options)
+    {
+        $admin_id = $data['id'];
+        $role_id = I('post.role_id')+0;
+        M('AdminRole')->add(array(
+            'admin_id' => $admin_id,
+            'role_id' => $role_id
+        ));
     }
 }
