@@ -15,6 +15,9 @@ class IndexController extends AuthController
     }
     public function left()
     {
+        $adminmodel = D('Admin');
+        $privdata = $adminmodel->getButton();
+        $this->assign('privdata', $privdata);
         $this->display();
     }
     public function drag()

@@ -77,4 +77,32 @@ class AdminModel extends Model
             'role_id' => $role_id
         ));
     }
+    //根据登陆的管理员获取权限数据
+    public function getButton() {
+        $admin_id = $_SESSION['admin_id'];
+        //判断是超级管理员,还是普通管理员
+        if ($admin_id == 1) {
+            //超级管理员
+            //取出权限
+            $sql = "select * from e2_privilege where parent_id=0";
+            $data = M()->query($sql);//返回的是二维数组
+            $list = array();
+            foreach ($data as $v) {
+                $v['child'] = M()->query("select * from e2_privilege where parent_id=" . $v['id']);
+                $list[] = $v;
+            }
+        } else {
+            //普通管理员
+            //取出普通管理员的权限
+            $sql="select c.* from e2_admin_role  a  left join e2_role_privilege b on a.role_id=
+            b.role_id left join e2_privilege c on b.priv_id=c.id       where c.parent_id=0 and a.admin_id=$admin_id";
+            $data = M()->query($sql);//返回的是二维数组
+            $list = array();
+            foreach ($data as $v) {
+                $v['child'] = M()->query("select * from e2_privilege where parent_id=" . $v['id']);
+                $list[] = $v;
+            }
+        }
+        return $list;
+    }
 }

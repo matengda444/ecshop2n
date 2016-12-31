@@ -119,26 +119,16 @@ body {
 <div id="main-div">
 <div id="menu-list">
 <ul>
+    <?php foreach ($privdata as $v) { ?>
   <li class="explode" key="02_cat_and_goods" name="menu">
-    商品管理        <ul>
-          <li class="menu-item"><a href="goodslist.html" target="main-frame">商品列表</a></li>
-          <li class="menu-item"><a href="goodsadd.html" target="main-frame">添加新商品</a></li>
-
-          <li class="menu-item"><a href="catelist.html" target="main-frame">商品分类</a></li>
+       <?php echo $v['priv_name'] ?><ul>
+      <?php foreach ($v['child'] as $v1) {
+      $url = $v1['module_name'].'/'.$v1['controller_name'].'/'.$v1['action_name']; ?>
+          <li class="menu-item"><a href="<?php echo U($url) ?>" target="main-frame"><?php echo $v1['priv_name'] ?></a></li>
+      <?php } ?>
         </ul>
       </li>
-
-  <li class="explode" key="04_order" name="menu">
-    订单管理        <ul>
-          <li class="menu-item"><a href="#" target="main-frame">订单列表</a></li>
-        </ul>
-      </li>
-  <li class="explode" key="04_order" name="menu">
-    会员管理        <ul>
-          <li class="menu-item"><a href="#" target="main-frame">会员列表</a></li>
-        </ul>
-      </li>
-
+    <?php  } ?>
 </ul>
 </div>
 <div id="help-div" style="display:none">
