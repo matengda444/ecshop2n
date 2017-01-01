@@ -28,5 +28,9 @@ class IndexController extends AuthController
     {
         $this->display();
     }
+    public function demo()
+    {
+        //
+    }
 }
 

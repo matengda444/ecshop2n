@@ -99,7 +99,9 @@ class AdminModel extends Model
             $data = M()->query($sql);//返回的是二维数组
             $list = array();
             foreach ($data as $v) {
-                $v['child'] = M()->query("select * from e2_privilege where parent_id=" . $v['id']);
+                $sql="select c.* from e2_admin_role  a  left join e2_role_privilege b on a.role_id=
+                b.role_id left join e2_privilege c on b.priv_id=c.id       where c.parent_id=".$v['id']." and a.admin_id=$admin_id";
+                $v['child'] = M()->query($sql);
                 $list[] = $v;
             }
         }

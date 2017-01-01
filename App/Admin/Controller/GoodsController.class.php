@@ -39,7 +39,22 @@ class GoodsController extends AuthController
     }
     public function lst()
     {
-        echo 'ok';
+        $goodsmodel = D('Goods');
+        $goodsdata =
+        $goodsdata =  $goodsmodel->field("id, goods_name, goods_sn, shop_price, is_best, is_sale, is_new, is_hot")->select();
+        $this->assign('goodsdata', $goodsdata);
+        $this->display();
+    }
+    //完成jajx切换的要给方法
+    public function ajaxToggle()
+    {
+        //接受传递的参数
+        $id = $_GET['id'];
+        $value = $_GET['value'];
+        $field = $_GET['field'];
+        $goodsmodel = D('Goods');
+        //返回受影响的行数
+        echo $goodsmodel->where("id = $id")->setField('is_' . $field,$value);
     }
 }
 

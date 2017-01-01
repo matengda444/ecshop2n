@@ -76,14 +76,14 @@ class GoodsModel extends Model
                         'goods_attr_id' => $k,
                         'attr_value' => $v1
                     ));
+                }
                 } else {
                     M("GoodsAttr")->add(array(
                         'goods_id' => $goods_id,
                         'goods_attr_id' => $k,
                         'attr_value' => $v
-                    ))
+                    ));
                 }
             }
-        }
     }
 }
