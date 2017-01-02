@@ -79,3 +79,10 @@ create table e2_admin_role(
     role_id int unsigned not null comment '橘色id'
 )engine myisam charset utf8;
 --创建一个管理员与角色的中间表
+create table e2_product(
+    id int unsigned primary key auto_increment,
+    goods_id int not null comment '商品的id,就是e2_goods表里的id',
+    goods_attr_id varchar(12) not null comment 'e2_goods_attr表里的id用于表示单选属性的值,多个用逗号隔开',
+    goods_number int not null comment '库存'
+)engine myisam charset utf8;
+--创建一个库存表
