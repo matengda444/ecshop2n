@@ -56,5 +56,22 @@ class GoodsController extends AuthController
         //返回受影响的行数
         echo $goodsmodel->where("id = $id")->setField('is_' . $field,$value);
     }
+    //货品管理
+    public function product()
+    {
+        //接受传递的商品id
+        $goods_id = $_GET['id']+0;
+        $goodsmodel = D('Goods');
+        $sql = "select a.*,b.attr_name from e2_goods_attr  a left join e2_attribute  b on a.goods_attr_id = b.id where  
+        a.goods_id=$goods_id and a.goods_attr_id in (select  goods_attr_id  from e2_goods_attr  where goods_id=
+        $goods_id group by goods_attr_id  having count(*)>1)";
+        $data = $goodsmodel->query($sql);
+        $list = array();
+        foreach ($data as $v) {
+            $list[$v['goods_attr_id']][] = $v;
+        }
+        $this->assign('list', $list);
+        $this->display();
+    }
 }
 

@@ -7,6 +7,28 @@
 <link href="__PUBLIC__/Admin/styles/general.css" rel="stylesheet" type="text/css" />
 <link href="__PUBLIC__/Admin/styles/main.css" rel="stylesheet" type="text/css" />
 <script type = 'text/javascript' src = '/app/view/js/jquery-1.4.2.min.js'></script>
+    <js href="__PUBLIC__/Js/jquery.js" />
+    <script>
+        $(function(){
+            //采用动态绑定的方式来完成
+            $(":button").click(function(){
+                //取出当前行
+                var curr_tr = $(this).parent().parent();
+                //判断button里面的值,如果是加号就自我复制,如果是减号就自我删除
+                if($(this).val()=='+'){
+                    //自我复制
+                    var new_tr = curr_tr.clone(true);//使用ture,表示深度克隆,包含克隆对象和事件
+                    //把新行里面的button按钮的值改成减号
+                    new_tr.find(":button").val('-');
+                    //把新行放到当前行的前面
+                    curr_tr.before(new_tr);
+                }else{
+                    //自我删除
+                    curr_tr.remove();
+                }
+            });
+        });
+    </script>
 </head>
 <body>
 
@@ -20,25 +42,25 @@
 
 <table width="100%" cellspacing="1" cellpadding="2" id="list-table">
   <tr>
-    <th>编号</th>
-    <th>商品类型名称</th>
-    <th>操作</th>
+      <?php foreach ($list as $v) { ?>
+    <th><?php echo $v[0]['attr_name'] ?></th>
+      <?php } ?>
+    <th>库存</th>
+      <th>操作</th>
   </tr>
-  <?php foreach($typedata as $v){?>
-      <tr align="center" class="0" id="0_1" id = 'tr_1'>
-    <td align="left" class="first-cell" style = 'padding-left="0"'>
-            <img src="__PUBLIC__/Admin/images/menu_minus.gif" id="icon_0_1" width="9" height="9" border="0" style="margin-left:0em" />
-            <span><a href="#" ><?php echo $v['id']?></a></span>
-        </td>
-    <td width="50%"><?php echo $v['type_name']?></td>
-    <td width="24%" align="center">
-      <a href="<?php echo U('Attribute/lst',array('type_id'=>$v['id']))?>">属性列表</a> |
-      <a href="#">编辑</a> |
-      <a href="#" title="移除">移除</a>
-    </td>
-  </tr>
-   <?php }?> 
-    
+
+    <tr>
+        <?php foreach ($list as $v) { ?>
+        <td><select name=''>
+            <option value=''>请选择</option>
+            <?php foreach($v as $v1) { ?>
+            <option value='<?php echo $v1["id"] ?>'><?php echo $v1['attr_value'] ?></option>
+            <?php } ?>
+        </select></td>
+        <?php } ?>
+        <td><input type="text" name="goods_number" /></td>
+        <td><input type="button" value="+" /></td>
+    </tr>
   </table>
 </div>
 </form>
