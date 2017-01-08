@@ -61,6 +61,30 @@ class GoodsController extends AuthController
     {
         //接受传递的商品id
         $goods_id = $_GET['id']+0;
+        if (IS_POST) {
+            //接受goods_id
+            $goods_id = I('post.goods_id');
+            //接受属性
+            $attr = I('post.attr');
+            //接受库存
+            $goods_number = I('post.goods_number');
+            //循环完成入库
+            $kc = 0;
+            foreach ($goods_number as $k => $v) {
+                $a = array();
+                foreach ($attr as $k1=>$v1) {
+                    $a[] = $v1[$k];
+                }
+                M("Product")->add(array(
+                    'goods_id' => $goods_id,
+                    'goods_attr_id' => implode(',', $a),
+                    'goods_number' => $v
+                ));
+                $kc += $v;
+            }
+            //设置e2_goods表里面的总的库存,
+            M('Goods')->where('id = $goods_id')->setField('goods_number', $kc);
+        }
         $goodsmodel = D('Goods');
         $sql = "select a.*,b.attr_name from e2_goods_attr  a left join e2_attribute  b on a.goods_attr_id = b.id where  
         a.goods_id=$goods_id and a.goods_attr_id in (select  goods_attr_id  from e2_goods_attr  where goods_id=
