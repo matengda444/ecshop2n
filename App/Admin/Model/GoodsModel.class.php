@@ -86,4 +86,14 @@ class GoodsModel extends Model
                 }
             }
     }
+    //取出热卖,新品,精品的商品
+    //参数1:是类型, (best hot new) 参数2:是取出的数量
+    public function getGoods($type, $num)
+    {
+        if ($type == 'best' || $type == 'hot' || $type == 'new') {
+            return $this->field("id, goods_name, goods_thumb, shop_price")->where("is_" . $type . "=1 and
+            is_sale=1 and is_delete=0")->order("id desc")->limit($num)->select();
+        }
+        return;
+    }
 }
