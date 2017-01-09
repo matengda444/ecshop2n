@@ -689,15 +689,16 @@
 			<!-- 商品列表 start-->
 			<div class="goodslist mt10">
 				<ul>
+					<?php foreach ($goodsdata as $v) { ?>
 					<li>
 						<dl>
-							<dt><a href=""><img src="__PUBLIC__/Home/images/goods1.jpg" alt="" /></a></dt>
-							<dd><a href="">清华同方精锐X2 台式电脑（双核E3500 2G 500G DVD 键鼠）带20英寸显示器</a></dt>
-							<dd><strong>￥2399.00</strong></dt>
+							<dt><a href=""><img src="__PUBLIC__/Uploads/<?php echo $v['goods_thumb'] ?>" alt="" /></a></dt>
+							<dd><a href=""><?php echo $v['goods_name'] ?></a></dt>
+							<dd><strong>￥<?php echo $v['shop_price'] ?></strong></dt>
 							<dd><a href=""><em>已有10人评价</em></a></dt>
 						</dl>
 					</li>
-
+					<?php } ?>
 					<li>
 						<dl>
 							<dt><a href=""><img src="__PUBLIC__/Home/images/goods2.jpg" alt="" /></a></dt>

@@ -27,6 +27,24 @@ class Indexcontroller extends Controller
     //栏目列表
     public function category()
     {
+        //接受传递栏目id
+        $cat_id = $_GET['id']+0;
+        if ($cat_id == 0) {
+            //如果参数有误,跳转到首页
+            header("location:/index.php");
+        }
+        //根据传递栏目id,查找出子孙栏目id
+        $catemodel = D("Admin/Category");
+        $ids = $catemodel->getChildId($cat_id);//取出子孙栏目id
+        //if (empty($ids)) {
+            //说明自己就是子孙栏目
+            $ids[] = $cat_id;//把自己的id天加到$ids数组里面
+        //}
+        $goodsmodel = M('Goods');
+        $ids = implode(',', $ids);
+        $goodsdata = $goodsmodel->field("id, cat_id, goods_name, goods_thumb, shop_price")->where("cat_id in
+        ($ids)")->select();
+        $this->assign('goodsdata', $goodsdata);
         $this->display();
     }
     //商品详情
