@@ -16,4 +16,5 @@ return array(
     'UPLOAD_ALLOW_EXT'      =>  array('jpeg', 'jpg', 'png', 'gif', 'bmp'),    //上传文件类型
     //'LOG_RECORD'            =>  true,
     //'LOG_LEVEL'             =>  'EMERG,ALERT,CRIT,ERR'
+    'DEFAULT_FILTER'        => 'trim,htmlspecialchars',
 );
