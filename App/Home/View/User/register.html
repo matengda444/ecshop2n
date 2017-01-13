@@ -32,7 +32,7 @@
 		</div>
 		<div class="login_bd">
 			<div class="login_form fl">
-				<form action="" method="post">
+				<form action="__ACTION__" method="post">
 					<ul>
 						<li>
 							<label for="">用户名：</label>
@@ -46,14 +46,20 @@
 						</li>
 						<li>
 							<label for="">确认密码：</label>
-							<input type="password" class="txt" name="password" />
+							<input type="password" class="txt" name="rpassword" />
 							<p> <span>请再次输入密码</p>
 						</li>
-						<li class="checkcode">
-							<label for="">验证码：</label>
-							<input type="text"  name="checkcode" />
-							<img src="__PUBLIC__/Home/images/checkcode1.jpg" alt="" />
-							<span>看不清？<a href="">换一张</a></span>
+						<li>
+							<label for="">邮箱：</label>
+							<input type="text"  name="email" class="txt" class="txt" />
+						</li>
+						<li>
+							<label for="">问题：</label>
+							<input type="text"  name="question" class="txt" />
+						</li>
+						<li>
+							<label for="">答案：</label>
+							<input type="text"  name="answer" class="txt" />
 						</li>
 						<li>
 							<label for="">&nbsp;</label>
