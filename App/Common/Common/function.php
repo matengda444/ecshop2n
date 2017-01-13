@@ -40,7 +40,7 @@ function p($a)
     echo '<pre>';
     print_r($a);
 }
-function sendEmail($title, $content, $fromuser, $address)//定义溢恶发送邮件的方法,参数1:信的标题,参数2:信的内容,参数3:署名,参数4:收件人的邮箱
+function sendEmail($title, $content, $fromuser, $address)//定义发送邮件的方法,参数1:信的标题,参数2:信的内容,参数3:署名,参数4:收件人的邮箱
 {
     //引入邮件发送的类文件
     require './PHPMailer/class.phpmailer.php';
