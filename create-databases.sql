@@ -4,6 +4,7 @@ create table e2_type(
     index (type_name)
 )engine myisam charset utf8;
 --创建一个商品类型表
+
 create table e2_attribute(
     id smallint unsigned primary key auto_increment,
     type_id tinyint unsigned not null comment '商品类型表id',
@@ -14,12 +15,14 @@ create table e2_attribute(
     index(type_id)
 )engine myisam charset utf8;
 --创建一个商品属性表
+
 create table e2_category(
     id smallint unsigned primary key auto_increment,
     cat_name varchar(32) not null comment '商品栏目名称',
     parent_id smallint not null default 0 comment '父级栏目id'
 )engine myisam charset utf8;
 --创建一个栏目表
+
 create table e2_goods(
     id int unsigned primary key auto_increment,
     goods_name varchar(32) not null comment '商品名称',
@@ -41,6 +44,7 @@ create table e2_goods(
     goods_desc varchar(256) not null default '' comment '商品描述'
 )engine myisam charset utf8;
 --创建一个商品表
+
 create table e2_goods_attr(
     id int unsigned primary key auto_increment,
     goods_id int not null comment '商品id',
@@ -48,6 +52,7 @@ create table e2_goods_attr(
     attr_value varchar(32) not null comment '属性值'
 )engine myisam charset utf8;
 --创建属性值表
+
 create table e2_admin(
     id int unsigned primary key auto_increment,
     admin_name varchar(32) not null comment '管理员名称',
@@ -55,11 +60,13 @@ create table e2_admin(
     salt varchar(10) not null comment '盐'
 )engine myisam charset utf8;
 --创建一个管理员表
+
 create table e2_role(
     id int unsigned primary key auto_increment,
     role_name varchar(32) not null comment '角色名称'
 )engine myisam charset utf8;
 --创建一个角色表
+
 create table e2_privilege(
     id int unsigned primary key auto_increment,
     priv_name varchar(32) not null comment '权限名称',
@@ -69,16 +76,19 @@ create table e2_privilege(
     action_name varchar(32) not null default '' comment '权限对应方法'
 )engine myisam charset utf8;
 --创建一个权限表
+
 create table  e2_role_privilege(
     role_id int unsigned not null comment '角色id',
     priv_id int unsigned not null comment '权限id'
 )engine myisam charset utf8;
 --创建一个角色与权限的中间表
+
 create table e2_admin_role(
     admin_id int unsigned not null comment '管理员id',
     role_id int unsigned not null comment '橘色id'
 )engine myisam charset utf8;
 --创建一个管理员与角色的中间表
+
 create table e2_product(
     id int unsigned primary key auto_increment,
     goods_id int not null comment '商品的id,就是e2_goods表里的id',
@@ -86,3 +96,17 @@ create table e2_product(
     goods_number int not null comment '库存'
 )engine myisam charset utf8;
 --创建一个库存表
+
+create table e2_user(
+    id int unsigned primary key auto_increment,
+    username varchar(32) not null comment '用户名',
+    password char(32) not null comment '密码,直接md5加密',
+    active tinyint not null default 0 comment '是否激活,0没有激活',
+    email varchar(32) not null comment '邮箱',
+    validate char(6) not null comment '验证密钥',
+    question varchar(32) not null comment '问题',
+    answer varchar(32) not null comment '答案',
+    reg_time int not null comment '注册时间',
+    findpassword_time int default 0 not null comment '设置找回密码的时间戳'
+)engine myisam charset utf8;
+--创建一个用户表
