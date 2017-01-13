@@ -38,4 +38,8 @@ class UserController extends Controller
     {
         $this->display();
     }
+    public function demo()
+    {
+        p(sendEmail('标题', '内容', '署名', 't@t.t'));
+    }
 }

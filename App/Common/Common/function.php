@@ -55,12 +55,12 @@ function sendEmail($title, $content, $fromuser, $address)//定义发送邮件的
     $mail->IsHTML(true); 			         //指定邮件内容格式为：html
     $mail->CharSet    ="UTF-8";			     //编码
     $mail->From       = 't@t.t';	 		 //发件人完整的邮箱名称
-    $mail->FromName   =$fromuser;			 //发信人署名
+    $mail->FromName   = $fromuser;			 //发信人署名
     $mail->Subject    = $title;  			 //信的标题
-    $mail->MsgHTML('$content');  				 //发信主体内容
+    $mail->MsgHTML($content);  				 //发信主体内容
     $mail->AddAttachment("test.jpg");	     //附件
     /*发送邮件*/
-    $mail->AddAddress('$address');  			 //收件人地址
+    $mail->AddAddress($address);  			 //收件人地址
     //使用send函数进行发送
     if($mail->Send()) {
         //发送成功返回真
