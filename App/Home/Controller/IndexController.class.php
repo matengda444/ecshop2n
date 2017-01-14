@@ -59,7 +59,7 @@ class Indexcontroller extends Controller
         //取出商品的数据
         $goodsmodel = M('Goods');
         $goodsinfo =
-        $goodsmodel->field("id,goods_name,goods_img,goods_sn,shop_price,add_time")->find($goods_id);
+        $goodsmodel->field("id, goods_name, goods_img, goods_sn, shop_price, add_time, goods_ori")->find($goods_id);
         $this->assign('goodsinfo', $goodsinfo);
         $this->display();
     }
