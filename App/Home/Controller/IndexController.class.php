@@ -53,6 +53,14 @@ class Indexcontroller extends Controller
         //接受传递的商品的id
         $goods_id = $_GET['id']+0;
         //注意要验证$goods_id的合法性,如果小于0或大于0都是不合法的
+        if ($goods_id <= 0) {
+            header("location:/index.php");
+        }
+        //取出商品的数据
+        $goodsmodel = M('Goods');
+        $goodsinfo =
+        $goodsmodel->field("id,goods_name,goods_img,goods_sn,shop_price,add_time")->find($goods_id);
+        $this->assign('goodsinfo', $goodsinfo);
         $this->display();
     }
 }
