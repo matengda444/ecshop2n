@@ -32,7 +32,7 @@
 		</div>
 		<div class="login_bd">
 			<div class="login_form fl">
-				<form action="" method="post">
+				<form action="__ACTION__" method="post">
 					<ul>
 						<li>
 							<label for="">用户名：</label>
@@ -41,13 +41,7 @@
 						<li>
 							<label for="">密码：</label>
 							<input type="password" class="txt" name="password" />
-							<a href="">忘记密码?</a>
-						</li>
-						<li class="checkcode">
-							<label for="">验证码：</label>
-							<input type="text"  name="checkcode" />
-							<img src="__PUBLIC__/Home/images/checkcode1.jpg" alt="" />
-							<span>看不清？<a href="">换一张</a></span>
+							<a href="<?php echo U('findpasswordOne') ?>">忘记密码?</a>
 						</li>
 						<li>
 							<label for="">&nbsp;</label>

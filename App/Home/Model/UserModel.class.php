@@ -19,4 +19,28 @@ class UserModel extends Model
         array('question', 'require', '要选择问题'),
         array('answer', 'require', '要回答问题')
     );
+    public function login()
+    {
+        //接受传递的用户名,密码
+        $username = I('post.username');
+        $password = I('post.password');
+        //取出数据
+        $info = $this->where("username='$username'")->find();
+        if ($info) {
+            //判断用户是否激活
+            if ($info['active'] == 0) {
+                $this->error='用户没有激活,则无法登录';
+                return false;
+            }
+            //说明有改用户
+            if ($info['password'] == md5($password)) {
+                //登录成功
+                $_SESSION['username'] = $username;
+                $_SESSION['user_id'] = $info['id'];
+                return true;
+            }
+        }
+        $this->error='用户名或密码错误';
+        return false;
+    }
 }
