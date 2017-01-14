@@ -87,6 +87,11 @@ class UserController extends Controller
         }
         $this->display();
     }
+    public function logout() {
+        $_SESSION['username'] = null;
+        $_SESSION['user_id'] = null;
+        $this->success('退出成功', U('Index/index'));
+    }
 //    public function demo()
 //    {
 //        for ($i = 0; $i < 10; $i++) {
