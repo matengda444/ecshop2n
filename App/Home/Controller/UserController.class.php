@@ -143,9 +143,23 @@ class UserController extends Controller
     }
     public function getPassword() {
         $usermodel = D('user');
-//        if (IS_POST) {
-//            a
-//        }
+        if (IS_POST) {
+            //接受传递的密码
+            $password = I('post.password');
+            $rpassword = I('post.rpassword');
+            if (empty($password)) {
+                $this->error('密码不能为空');
+            }
+            if ($password != $rpassword) {
+                $this->error('两次密码输入不一致');
+            }
+            //更新密码
+            //取出用户的id
+            $id = $_SESSION['find_user_id'];
+            $usermodel->where("id=$id")->setField('password', md5($password));
+            $this->success('重设密码成功', U('User/login'));
+            exit;
+        }
         //接受传递的 email 和 key
         //接受传递的内容
         $email = $_GET['email'];
