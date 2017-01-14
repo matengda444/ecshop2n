@@ -50,6 +50,9 @@ class Indexcontroller extends Controller
     //商品详情
     public function detail()
     {
+        //接受传递的商品的id
+        $goods_id = $_GET['id']+0;
+        //注意要验证$goods_id的合法性,如果小于0或大于0都是不合法的
         $this->display();
     }
 }

@@ -28,7 +28,7 @@ class UserController extends Controller
                     $address = I('post.email');
                     $username = I('post.username');
                     $url = "http://a.b" . U('User/active', array('email' => $address, 'key' => $key));
-                    $content = "尊敬的用户,我是你爹:<br/>话费充值请按1,流量购买请按2,否则,请挂机<br/>爱用就用不用就滚<br/><a href='$url'>单击激活<a/>";
+                    $content = "尊敬的用户,我是你爹:<br/>话费充值请按1,流量购买请按2,否则,请挂机<br/><a href='$url'>单击激活<a/>";
                     if (sendEmail($title, $content, $fromuser, $address)) {
                         $this->success('注册成功,请点击邮箱激活链接');
                     } else {
