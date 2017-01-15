@@ -61,6 +61,25 @@ class Indexcontroller extends Controller
         $goodsinfo =
         $goodsmodel->field("id, goods_name, goods_img, goods_sn, shop_price, add_time, goods_ori")->find($goods_id);
         $this->assign('goodsinfo', $goodsinfo);
+        //取出商品信息
+        $attrdata = M('GoodsAttr')->field("a.*,b.attr_name,b.attr_type")->join("a left join e2_attribute b on
+        a.goods_attr_id=b.id")->where("a.goods_id=$goods_id")->select();
+        //根据属性的位置不同,则需要分组显示,把单选属性组织到一起,把唯一属性组织到一起
+        $radiodata = array();//用于存储单选属性
+        $uniquedata = array();//用于存储唯一属性
+        foreach ($attrdata as $v) {
+            if ($v['attr_type'] == 1) {
+                //单选属性
+                $radiodata[$v['goods_attr_id']][] = $v;
+            } else {
+                //唯一属性
+                $uniquedata[] = $v;
+            }
+        }
+        $this->assign(array(
+            'radiodata' => $radiodata,
+            'unqiuedata' => $uniquedata
+        ));
         $this->display();
     }
 }

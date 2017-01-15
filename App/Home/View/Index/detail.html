@@ -249,14 +249,15 @@
 					</ul>
 					<form action="" method="post" class="choose">
 						<ul>
+							<?php foreach ($radiodata as $k => $v) { ?>
 							<li class="product">
 								<dl>
-									<dt>颜色：</dt>
+									<dt><?php echo $v[0]['attr_name'] ?>：</dt>
 									<dd>
-										<a class="selected" href="javascript:;">黑色 <input type="radio" name="color" value="黑色" checked="checked" /></a>
-										<a href="javascript:;">白色 <input type="radio" name="color" value="白色" /></a>
-										<a href="javascript:;">蓝色 <input type="radio" name="color" value="蓝色" /></a>
-										<input type="hidden" name="" value="" />
+										<?php foreach ($v as $k1 => $v1) { ?>
+										<a <?php if ($k1 == 0) {echo 'class="selected"';} ?> href="javascript:;"><?php echo $v1['attr_value'] ?>
+										<input type="radio" name="attr[<?php echo $k; ?>]" value="<?php echo $v1['id'] ?>" <?php if ($k1 == 0) {echo 'checked="checked"';} ?> /></a>
+										<?php  } ?>
 									</dd>
 								</dl>
 							</li>
@@ -273,7 +274,7 @@
 									</dd>
 								</dl>
 							</li>
-
+							<?php } ?>
 							<li>
 								<dl>
 									<dt>购买数量：</dt>
@@ -317,7 +318,9 @@
 					<div class="introduce detail_div none">
 						<div class="attr mt15">
 							<ul>
-								<li><span>商品名称：</span>ThinkPadX230(2306 3T4）</li>
+								<?php foreach ($uniquedata as $v) { ?>
+									<li><span><?php echo $v['attr_name'] ?>：</span><?php echo $v['attr_value'] ?></li>
+								<?php } ?>
 								<li><span>商品编号：</span>979631</li>
 								<li><span>品牌：</span>联想（Thinkpad）</li>
 								<li><span>上架时间：</span>2013-09-18 17:58:12</li>
