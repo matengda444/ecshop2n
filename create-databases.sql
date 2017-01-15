@@ -110,3 +110,13 @@ create table e2_user(
     findpassword_time int default 0 not null comment '设置找回密码的时间戳'
 )engine myisam charset utf8;
 --创建一个用户表
+
+create table e2_cart(
+    goods_id int not null comment '商品的id',
+    goods_attr_id varchar(10) not null default '' comment '商品属性的id,也就是it_goods_attr表离得id',
+    goods_count tinyint not null comment '改买商品的数量',
+    user_id int not null comment '登录用户的id',
+    index (goods_id),
+    index (user_id)
+)engine myisam charset utf8;
+--创建一个购物车表
