@@ -12,7 +12,7 @@ class CartModel extends Model
         //取出登录的id
         $user_id = $_SESSION['user_id']+0;
         if ($user_id > 0) {
-            //已经登录,把数据存储到数据苦力
+            //已经登录,把数据存储到数据库里
             //在存储之前要饭段购物车表里面是否有该商品,如果有,则修改购买数量,如果没有就添加
             $info = $this->where("user_id=$user_id and goods_id=$goods_id and goods_attr_id='$goods_attr_id'")->find();
             if ($info) {
