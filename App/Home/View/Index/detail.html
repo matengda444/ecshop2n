@@ -247,7 +247,7 @@
 						<li><span>上架时间：</span><?php echo date('Y-m-d', $goodsinfo['add_time']) ?></li>
 						<li class="star"><span>商品评分：</span> <strong></strong><a href="">(已有21人评价)</a></li> <!-- 此处的星级切换css即可 默认为5星 star4 表示4星 star3 表示3星 star2表示2星 star1表示1星 -->
 					</ul>
-					<form action="" method="post" class="choose">
+					<form action="<?php echo U('Cart/addCart') ?>" method="post" class="choose">
 						<ul>
 							<?php foreach ($radiodata as $k => $v) { ?>
 							<li class="product">
@@ -280,12 +280,12 @@
 									<dt>购买数量：</dt>
 									<dd>
 										<a href="javascript:;" id="reduce_num"></a>
-										<input type="text" name="amount" value="1" class="amount"/>
+										<input type="text" name="goods_count" value="1" class="amount"/>
 										<a href="javascript:;" id="add_num"></a>
 									</dd>
 								</dl>
 							</li>
-
+							<input type="hidden" name="id" value="<?php echo $_GET['id']+0 ?>" />
 							<li>
 								<dl>
 									<dt>&nbsp;</dt>
