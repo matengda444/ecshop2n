@@ -28,6 +28,10 @@ class CartController extends Controller
         $cartmodel = D('Cart');
         $cartdata = $cartmodel->cartList();//返回购物车里的数据
         $this->assign('cartdata', $cartdata);
+        //取出购物车里面的商品,和总的价格
+        $cartmodel->getTotal();
+        p($total);
+        exit;
         $this->display();
     }
 }

@@ -87,4 +87,19 @@ class CartModel extends Model
         $info = M()->query($sql);//返回二位数组
         p($info);
     }
+    //用于取出购物车中的商品的数量和价格
+    public function getTotal()
+    {
+        $cartdata = $this->cartList();//返回购物车里的数据
+        $total_number = 0;//设置购买数量
+        $total_price = 0;//设置总计价格
+        if ($cartdata) {
+            //说明购物车里有商品
+            foreach ($cartdata as $v) {
+                $total_number += $v['gooda_count'];
+                $total_price += $v['goods_count']*$v['info']['shop_price'];
+            }
+        }
+        return array('total_number' => $total_number, 'total_price' => $total_price);
+    }
 }
