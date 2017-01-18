@@ -27,6 +27,7 @@ class CartController extends Controller
     {
         $cartmodel = D('Cart');
         $cartdata = $cartmodel->cartList();//返回购物车里的数据
-        p($cartdata);
+        $this->assign('cartdata', $cartdata);
+        $this->display();
     }
 }
