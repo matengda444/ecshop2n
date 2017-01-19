@@ -11,15 +11,15 @@
 
 	<script type="text/javascript" src="__PUBLIC__/Home/js/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="__PUBLIC__/Home/js/cart1.js"></script>
-	
+
 </head>
 <body>
 	<!-- 顶部导航 start -->
 	<include file="Pub/head_top" />
 	<!-- 顶部导航 end -->
-	
+
 	<div style="clear:both;"></div>
-	
+
 	<!-- 页面头部 start -->
 	<div class="header w990 bc mt15">
 		<div class="logo w990">
@@ -34,7 +34,7 @@
 		</div>
 	</div>
 	<!-- 页面头部 end -->
-	
+
 	<div style="clear:both;"></div>
 
 	<!-- 主体部分 start -->
@@ -46,7 +46,7 @@
 					<th class="col1">商品名称</th>
 					<th class="col2">商品信息</th>
 					<th class="col3">单价</th>
-					<th class="col4">数量</th>	
+					<th class="col4">数量</th>
 					<th class="col5">小计</th>
 					<th class="col6">操作</th>
 				</tr>
@@ -58,7 +58,7 @@
 						<strong><a href="<?php echo U('Index/detail', array('id' => $v['goods_id'])) ?>"><?php echo $v['info']['goods_name'] ?></a></strong></td>
 					<td class="col2"><?php echo $v['attrs'] ?></td>
 					<td class="col3">￥<span><?php echo $v['info']['shop_price'] ?></span></td>
-					<td class="col4"> 
+					<td class="col4">
 						<a href="javascript:;" class="reduce_num"></a>
 						<input type="text" name="amount" value="<?php echo $v['goods_count'] ?>" class="amount"/>
 						<a href="javascript:;" class="add_num"></a>

@@ -10,6 +10,7 @@ class AttributeController extends AuthController
         if (IS_POST) {
             $attrmodel = D('Attribute');
             if ($attrmodel->create()) {
+                $type_id = (int)I('post.type_id');
                 if ($attrmodel->add()) {
                     $this->success('添加成功', U('lst'));
                     exit;
@@ -37,13 +38,12 @@ class AttributeController extends AuthController
         $this->assign('type_id', $type_id);
         $this->assign('typedata', $typedata);
         $attrmodel = D('Attribute');
-        $count = $attrmodel->where($where)->count(); //查询满足要求的记录数
+        $count      =  $attrmodel->join("a  left join e2_type b on a.type_id=b.id")->where($where)->count();// 查询满足要求的总记录数
         $Page = new \Think\Page($count, 2); //实例化分页类,传入总记录数和煤业显示的记录数
         $Page->setConfig('prev', '上一页');
         $Page->setConfig('next', '下一页');
         $show = $Page->show(); //分页显示输出
-        $attrdata = $attrmodel->field("a.*,b.type_name")->join("a left join e2_type b on
-        a.type_id=b.id")->where($where)->limit($Page->firstRow.','.$Page->listRows)->select();
+        $attrdata = $attrmodel->field("a.*,b.type_name")->join("a  left join e2_type b on a.type_id=b.id")->where($where)->limit($Page->firstRow.','.$Page->listRows)->select();
         $this->assign('attrdata', $attrdata);
         $this->assign('show', $show);
         $this->display();

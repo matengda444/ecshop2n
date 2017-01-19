@@ -13,7 +13,7 @@ class CartModel extends Model
         $user_id = $_SESSION['user_id']+0;
         if ($user_id > 0) {
             //已经登录,把数据存储到数据库里
-            //在存储之前要饭段购物车表里面是否有该商品,如果有,则修改购买数量,如果没有就添加
+            //在存储之前要判断购物车表里面是否有该商品,如果有,则修改购买数量,如果没有就添加
             $info = $this->where("user_id=$user_id and goods_id=$goods_id and goods_attr_id='$goods_attr_id'")->find();
             if ($info) {
                 //该商品已经存在,则修改购买数量
@@ -41,6 +41,7 @@ class CartModel extends Model
                 $cart[$key] = $goods_count;
             }
             //把修改的数组,在保存到cookie里面
+            setcookie('cart',serialize($cart),time()+3600*24*7,'/');
         }
     }
     public function cartList()
@@ -54,7 +55,7 @@ class CartModel extends Model
             $cartdata = $this->where("user_id=$user_id")->select();//二维数组
         } else {
             //没有登录,从cookie里取出
-            $cart = isset($_COOKIE['cart'])?unserialize($_COOKIE['cart']):array();//一维数组/
+            $cart = isset($_COOKIE['cart'])?unserialize($_COOKIE['cart']):array();//一维数组
             ///为了统一遍历,把该一维数组转换成二维数组
             $cartdata = array();
             foreach ($cart as $k => $v) {
@@ -69,11 +70,16 @@ class CartModel extends Model
             $cartList = array();
             foreach ($cartdata as $v) {
                 //添加一个info元素,用于获取商品的基本信息
-                $v['info']=M('Goods')->field("id,goods_name,goods_thumb,shop_price")->where("id=".$v['goods_id'])->find();
+                $v['info'] = M('Goods')->field("id,goods_name,goods_thumb,shop_price")->where("id=".$v['goods_id'])->find();
                 //attrs用于获取商品的属性信息
                 //$v['goods_id']->find();
-                $v['attrs'] = $this->getAttrs($v['goods_id'], $v['goods_attr_id']);
-                $cartList[] = $v;
+                if ($user_id >= 0) {
+                    $v[] = 0;
+                    $cartList[] = $v;
+                } else {
+                    $v['attrs'] = $this->getAttrs($v['goods_id'], $v['goods_attr_id']);
+                    $cartList[] = $v;
+                }
             }
             return $cartList;
         }
@@ -81,9 +87,8 @@ class CartModel extends Model
     //定义一个方法,取出属性数据
     public function getAttrs($goods_id, $goods_attr_id)
     {
-        $sql = "select group_concat(concat(b.attr_name,':',a.attr_value) separator '<br/>') as attrs
-        from e2_goods_attr a left join e2_attribute b on a.goods_attr_id=b.id where
-        a.goods_id=$goods_id and a.id in($goods_attr_id)";
+        $sql="select  group_concat(concat(b.attr_name,':',a.attr_value) separator '<br/>')  as attrs
+                from e2_goods_attr  a left join e2_attribute   b  on  a.goods_attr_id=b.id where a.goods_id=$goods_id and a.id in($goods_attr_id)";
         $info = M()->query($sql);//返回二位数组
         //p($info);
         return $info[0]['attrs'];
@@ -97,7 +102,7 @@ class CartModel extends Model
         if ($cartdata) {
             //说明购物车里有商品
             foreach ($cartdata as $v) {
-                $total_number += $v['gooda_count'];
+                $total_number += $v['goods_count'];
                 $total_price += $v['goods_count'] * $v['info']['shop_price'];
             }
         }
@@ -110,7 +115,7 @@ class CartModel extends Model
         $user_id = $_SESSION['user_id']+0;
         if ($user_id > 0) {
             //已经登录,操作数据库
-            $this->where("goods_id=$goods_id and goods_attr_id='goods_attr_id' and user_id=$user_id")->delete();
+            $this->where("goods_id=$goods_id and goods_attr_id='$goods_attr_id' and user_id=$user_id")->delete();
         } else {
             //没有登录,操作cookie
             $cart = isset($_COOKIE['cart'])?unserialize($_COOKIE['cart']):array();//一维数组
