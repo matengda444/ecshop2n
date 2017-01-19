@@ -15,7 +15,7 @@ class AttributeModel extends Model
     protected function isGt0() //定义一个方法,验证是否大于0
     {
         $type_id = (int)I('post.type_id');
-        if ($type_id>0) {
+        if ($type_id > 0) {
             return true;
         }
         return false;

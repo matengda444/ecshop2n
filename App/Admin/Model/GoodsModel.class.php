@@ -46,12 +46,13 @@ class GoodsModel extends Model
         $data['add_time'] = time(); //接受的货号
         $goods_sn = I('post.goods_sn');
         if (empty($goods_sn)) {
-            $goods_sn = 'sn_'.uniqid(); //uniqid()该函数会生成一个唯一的字符串
+            $goods_sn = "sn_".uniqid(); //uniqid()该函数会生成一个唯一的字符串
             $data['goods_sn'] = $goods_sn;
         }
         if ($_FILES['goods_img']['error'] != 4) {
             $res =oneFileupload('goods_img', 'Goods', $arr=array(array(100,100), array(250,250)));
             if ($res['status'] == 0) {
+                //成功
                 $data['goods_ori'] = $res['info'][0];
                 $data['goods_thumb'] = $res['info'][1];
                 $data['goods_img'] = $res['info'][2];

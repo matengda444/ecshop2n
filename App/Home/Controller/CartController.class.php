@@ -31,7 +31,7 @@ class CartController extends Controller
         //取出购物车里面的商品,和总的价格
         $cartmodel->getTotal();
         p($total);
-        exit;
+        //exit;
         $this->display();
     }
 }
