@@ -1,0 +1,22 @@
+[ 2016-12-29T14:30:16+08:00 ] 127.0.0.1 /admin-admin-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.025581s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.008692s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.008799s ]
+SQL: SHOW COLUMNS FROM `e2_role` [ RunTime:0.0371s ]
+SQL: SELECT * FROM `e2_role`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000063s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000149s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.087895s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.088005s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.013104s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.013186s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.008137s ]
+INFO: [ app_end ] --END-- [ RunTime:0.008219s ]
+

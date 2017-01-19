@@ -1,0 +1,321 @@
+[ 2017-01-15T04:43:58+08:00 ] 127.0.0.1 /admin-goods-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000465s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000697s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000789s ]
+SQL: SHOW COLUMNS FROM `e2_category` [ RunTime:0.0184s ]
+SQL: SELECT * FROM `e2_category`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0139s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000086s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000170s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.050846s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.050955s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000472s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000557s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000818s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000908s ]
+
+[ 2017-01-15T04:44:14+08:00 ] 127.0.0.1 /Admin-Goods-showattr.html?type_id=1
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000440s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000690s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000771s ]
+NOTIC: [8] Use of undefined constant callback - assumed 'callback' C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Common\functions.php 第 588 行.
+SQL: SHOW COLUMNS FROM `e2_attribute` [ RunTime:0.0136s ]
+SQL: SELECT * FROM `e2_attribute` WHERE ( type_id=1 )  [ RunTime:0.0739s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000070s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000153s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.035666s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.035777s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000473s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000543s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000875s ]
+
+[ 2017-01-15T04:44:16+08:00 ] 127.0.0.1 /Admin-Goods-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000407s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000612s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000707s ]
+SQL: SHOW COLUMNS FROM `e2_goods` [ RunTime:0.0026s ]
+SQL: INSERT INTO `e2_goods` (`goods_name`,`goods_sn`,`cat_id`,`shop_price`,`market_price`,`goods_desc`,`goods_number`,`is_sale`,`goods_type`,`add_time`) VALUES ('手机','sn_587a8da0199c2','0','0','0','','1','1','1','1484426656') [ RunTime:0.0650s ]
+SQL: SHOW COLUMNS FROM `e2_goods_attr` [ RunTime:0.0025s ]
+SQL: INSERT INTO `e2_goods_attr` (`goods_id`,`goods_attr_id`,`attr_value`) VALUES ('13','1','') [ RunTime:0.0152s ]
+SQL: INSERT INTO `e2_goods_attr` (`goods_id`,`goods_attr_id`,`attr_value`) VALUES ('13','4','请问') [ RunTime:0.0003s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000050s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000134s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.007056s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.007152s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000306s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000375s ]
+
+[ 2017-01-15T04:44:17+08:00 ] 127.0.0.1 /Admin-Goods-lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000390s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000632s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000722s ]
+SQL: SHOW COLUMNS FROM `e2_goods` [ RunTime:0.0026s ]
+SQL: SELECT `id`,`goods_name`,`goods_sn`,`shop_price`,`is_best`,`is_sale`,`is_new`,`is_hot` FROM `e2_goods`  [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000394s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000515s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.029582s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.029678s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000368s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000444s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000866s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000958s ]
+
+[ 2017-01-15T04:45:25+08:00 ] 127.0.0.1 /Admin-Goods-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000438s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000810s ]
+SQL: SHOW COLUMNS FROM `e2_category` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `e2_category`  [ RunTime:0.0004s ]
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000085s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.009090s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.009181s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000465s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000555s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000885s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000995s ]
+
+[ 2017-01-15T04:49:29+08:00 ] 127.0.0.1 /admin-attribute-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000668s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000758s ]
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0026s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000064s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000154s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.013105s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.013216s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000417s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000488s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000755s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000831s ]
+
+[ 2017-01-15T04:50:52+08:00 ] 127.0.0.1 /admin-attribute-lst
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000456s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000727s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000836s ]
+NOTIC: [8] Undefined index: type_id C:\Program Files\Git-2.11.0-64-bit\e2\App\Admin\Controller\AttributeController.class.php 第 29 行.
+NOTIC: [8] Undefined variable: ytpe_id C:\Program Files\Git-2.11.0-64-bit\e2\App\Admin\Controller\AttributeController.class.php 第 30 行.
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0024s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+NOTIC: [8] Use of undefined constant callback - assumed 'callback' C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Common\functions.php 第 588 行.
+SQL: SHOW COLUMNS FROM `e2_attribute` [ RunTime:0.0024s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `e2_attribute` LIMIT 1   [ RunTime:0.0110s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT a.*,b.type_name FROM `e2_attribute` a left join e2_type b on
+        a.type_id=b.id  LIMIT 0,2   [ RunTime:0.0552s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000071s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000167s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.023350s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.023468s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000450s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000519s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000783s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000861s ]
+
+[ 2017-01-15T04:50:59+08:00 ] 127.0.0.1 /Admin-Attribute-lst?type_id=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000438s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000691s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000780s ]
+NOTIC: [8] Undefined variable: ytpe_id C:\Program Files\Git-2.11.0-64-bit\e2\App\Admin\Controller\AttributeController.class.php 第 30 行.
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0024s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+NOTIC: [8] Use of undefined constant callback - assumed 'callback' C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Common\functions.php 第 588 行.
+SQL: SHOW COLUMNS FROM `e2_attribute` [ RunTime:0.0024s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `e2_attribute` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT a.*,b.type_name FROM `e2_attribute` a left join e2_type b on
+        a.type_id=b.id  LIMIT 0,2   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000075s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000160s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008349s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008461s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000410s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000482s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000823s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000904s ]
+
+[ 2017-01-15T04:51:48+08:00 ] 127.0.0.1 /Admin-Attribute-lst?type_id=11
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000412s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000668s ]
+NOTIC: [8] Undefined variable: ytpe_id C:\Program Files\Git-2.11.0-64-bit\e2\App\Admin\Controller\AttributeController.class.php 第 30 行.
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+NOTIC: [8] Use of undefined constant callback - assumed 'callback' C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Common\functions.php 第 588 行.
+SQL: SHOW COLUMNS FROM `e2_attribute` [ RunTime:0.0024s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `e2_attribute` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT a.*,b.type_name FROM `e2_attribute` a left join e2_type b on
+        a.type_id=b.id  LIMIT 0,2   [ RunTime:0.0006s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000092s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000174s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008564s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008674s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000452s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000537s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000759s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000837s ]
+
+[ 2017-01-15T04:51:51+08:00 ] 127.0.0.1 /Admin-Attribute-lst?type_id=4
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000024s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000422s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000623s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000709s ]
+NOTIC: [8] Undefined variable: ytpe_id C:\Program Files\Git-2.11.0-64-bit\e2\App\Admin\Controller\AttributeController.class.php 第 30 行.
+SQL: SHOW COLUMNS FROM `e2_type` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `e2_type`  [ RunTime:0.0004s ]
+NOTIC: [8] Use of undefined constant callback - assumed 'callback' C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Common\functions.php 第 588 行.
+SQL: SHOW COLUMNS FROM `e2_attribute` [ RunTime:0.0025s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT COUNT(*) AS tp_count FROM `e2_attribute` LIMIT 1   [ RunTime:0.0003s ]
+NOTIC: [2] Invalid argument supplied for foreach() C:\Program Files\Git-2.11.0-64-bit\e2\ThinkPHP\Library\Think\Db\Driver.class.php 第 493 行.
+SQL: SELECT a.*,b.type_name FROM `e2_attribute` a left join e2_type b on
+        a.type_id=b.id  LIMIT 0,2   [ RunTime:0.0005s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000082s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000163s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.008212s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008322s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000461s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000534s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000780s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000868s ]
+
+[ 2017-01-15T04:52:07+08:00 ] 127.0.0.1 /Admin-Category-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000018s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000413s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000586s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000689s ]
+SQL: SHOW COLUMNS FROM `e2_category` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `e2_category`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000058s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000138s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.022407s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.022517s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000319s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000388s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000775s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000859s ]
+
+[ 2017-01-15T04:52:13+08:00 ] 127.0.0.1 /Admin-Category-add
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000597s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000691s ]
+SQL: SHOW COLUMNS FROM `e2_category` [ RunTime:0.0024s ]
+SQL: INSERT INTO `e2_category` (`cat_name`,`parent_id`) VALUES ('aaaaaaaaaaaaaaaaaaaa','0') [ RunTime:0.0520s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000057s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000139s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.006820s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006923s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000465s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000537s ]
+
+[ 2017-01-15T04:52:14+08:00 ] 127.0.0.1 /Admin-Category-lst.html
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000396s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000605s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000694s ]
+SQL: SHOW COLUMNS FROM `e2_category` [ RunTime:0.0025s ]
+SQL: SELECT * FROM `e2_category`  [ RunTime:0.0004s ]
+INFO: [ view_parse ] --START--
+INFO: [ template_filter ] --START--
+INFO: Run Behavior\ContentReplaceBehavior [ RunTime:0.000061s ]
+INFO: [ template_filter ] --END-- [ RunTime:0.000143s ]
+INFO: Run Behavior\ParseTemplateBehavior [ RunTime:0.034020s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.034116s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCacheBehavior [ RunTime:0.000546s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000629s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000751s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000828s ]
+

@@ -1,0 +1,72 @@
+[ 2016-12-27T01:14:58+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000406s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T14:16:12+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000020s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000418s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T14:16:12+08:00 ] 127.0.0.1 /favicon.ico
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000493s ]
+ERR: 无法加载模块:Favicon
+
+[ 2016-12-27T19:24:03+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000461s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T19:35:34+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000411s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T19:44:50+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000022s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000441s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T20:01:14+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000410s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T20:06:05+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000407s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T20:32:07+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000023s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000467s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T20:32:25+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000416s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T21:50:57+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000019s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000402s ]
+ERR: 无法加载模块:App/view/js/jquery
+
+[ 2016-12-27T21:51:00+08:00 ] 127.0.0.1 /app/view/js/jquery-1.4.2.min.js
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000021s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000439s ]
+ERR: 无法加载模块:App/view/js/jquery
+
