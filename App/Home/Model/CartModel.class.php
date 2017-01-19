@@ -102,4 +102,22 @@ class CartModel extends Model
         }
         return array('total_number' => $total_number, 'total_price' => $total_price);
     }
+    //删除购物车方法
+    public function cartDel($goods_id, $goods_attr_id)
+    {
+        //判断用户是否登录
+        $user_id = $_SESSION['user_id']+0;
+        if ($user_id > 0) {
+            //已经登录,操作数据库
+            $this->where("goods_id=$goods_id and goods_attr_id='goods_attr_id' and user_id=$user_id")-delete();
+        } else {
+            //没有登录,操作cookie
+            $cart = isset($_COOKIE['cart'])?unserialize($_COOKIE['cart']):array();//一维数组
+            //构造键
+            $key = $goods_id . '-' . $goods_attr_id;
+            unset($cart[$key]);
+            //把修改的数组,再保存到cookie里
+            setcookie('cart', serialize($cart), time()+3600*24*7, '/');
+        }
+    }
 }
