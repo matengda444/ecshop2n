@@ -64,7 +64,7 @@
 						<a href="javascript:;" class="add_num"></a>
 					</td>
 					<td class="col5">￥<span><?php echo $v['info']['shop_price']*$v['goods_count'] ?></span></td>
-					<td class="col6"><a href="<?php echo U('cartDel', array('goods_id => $v['goods_id'], 'goods_attr_id' => $v['goods_attr_id'])) ?>">删除</a></td>
+					<td class="col6"><a href="<?php echo U('cartDel', array('goods_id' => $v['goods_id'], 'goods_attr_id' => $v['goods_attr_id'])) ?>">删除</a></td>
 				</tr>
 			    <?php } ?>
 			</tbody>

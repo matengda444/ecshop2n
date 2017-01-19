@@ -79,6 +79,9 @@ class UserController extends Controller
         if (IS_POST) {
             $usermodel = D('User');
             if ($usermodel->login()) {
+                //登录成功
+                $cartmodel = D('Cart');
+                $cartmodel->cookie2db();
                 $this->success('登录成功', U('Index/index'));
                 exit;
             } else {

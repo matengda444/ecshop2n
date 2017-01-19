@@ -29,7 +29,49 @@ class CartController extends Controller
         $cartdata = $cartmodel->cartList();//返回购物车里的数据
         $this->assign('cartdata', $cartdata);
         //取出购物车里面的商品,和总的价格
+        p($cartList);
+        exit;
         $cartmodel->getTotal();
         $this->display();
+    }
+    public function cartDel()
+    {
+        $goods_id = $_GET['goods_id'];
+        $goods_attr_id = $_GET['goods_attr_id'];
+        $cartmodel = D('Cart');
+        $cartdata = $cartmodel->cartDel($goods_id, $goods_attr_id);
+        $this->redirect('Cart/cartList');
+    }
+    //cookie数据移动到数据库里
+    public function cookie2db()
+    {
+        //取出cookie数据
+        $cart = isset($_COOKIE['cart'])?unserialize($_COOKIE['cart']):array();//一维数组
+        $user_id = $_SESSION['user_id'];
+        if ($cart) {
+            //cookie里有数据
+            //判断数据库里面,是否有该商品
+            foreach ($cart as $k => $v) {
+                $a = explode('-', $k);
+                $goods_id = $a[0];
+                $goods_attr_id = $a[1];
+                $goods_count = $v;
+                $info = $this->where("user_id=$user_id and goods_id=$goods_id and goods_attr_id='$goods_attr_id''")->find();
+                if ($info) {
+                    //说明该商品已经存在,则直接修改购买数量
+                    $this->where("user_id=$user_id and goods_id=$goods_id and goods_attr_id='$goods_attr_id''")->setInc('goods_count', $goods_count);
+                } else {
+                    //说明该商品不存在,则直接添加数据库
+                    $this->add(array(
+                        'goods_id' => $goods_id,
+                        'goods_attr_id' => $goods_attr_id,
+                        'goods_count' => $goods_count,
+                        'user_id' => $user_id
+                    ));
+                }
+            }
+            //把cookie数据清空
+            setcookie('cart', '', time()-1, '/');
+        }
     }
 }

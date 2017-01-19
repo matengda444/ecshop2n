@@ -85,7 +85,8 @@ class CartModel extends Model
         from e2_goods_attr a left join e2_attribute b on a.goods_attr_id=b.id where
         a.goods_id=$goods_id and a.id in($goods_attr_id)";
         $info = M()->query($sql);//返回二位数组
-        p($info);
+        //p($info);
+        return $info[0]['attrs'];
     }
     //用于取出购物车中的商品的数量和价格
     public function getTotal()
@@ -109,7 +110,7 @@ class CartModel extends Model
         $user_id = $_SESSION['user_id']+0;
         if ($user_id > 0) {
             //已经登录,操作数据库
-            $this->where("goods_id=$goods_id and goods_attr_id='goods_attr_id' and user_id=$user_id")-delete();
+            $this->where("goods_id=$goods_id and goods_attr_id='goods_attr_id' and user_id=$user_id")->delete();
         } else {
             //没有登录,操作cookie
             $cart = isset($_COOKIE['cart'])?unserialize($_COOKIE['cart']):array();//一维数组
