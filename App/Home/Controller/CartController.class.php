@@ -30,8 +30,6 @@ class CartController extends Controller
         $this->assign('cartdata', $cartdata);
         //取出购物车里面的商品,和总的价格
         $cartmodel->getTotal();
-        p($total);
-        //exit;
         $this->display();
     }
 }

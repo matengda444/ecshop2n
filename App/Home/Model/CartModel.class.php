@@ -97,7 +97,7 @@ class CartModel extends Model
             //说明购物车里有商品
             foreach ($cartdata as $v) {
                 $total_number += $v['gooda_count'];
-                $total_price += $v['goods_count']*$v['info']['shop_price'];
+                $total_price += $v['goods_count'] * $v['info']['shop_price'];
             }
         }
         return array('total_number' => $total_number, 'total_price' => $total_price);
