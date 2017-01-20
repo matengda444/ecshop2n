@@ -71,15 +71,9 @@ class CartModel extends Model
             foreach ($cartdata as $v) {
                 //添加一个info元素,用于获取商品的基本信息
                 $v['info'] = M('Goods')->field("id,goods_name,goods_thumb,shop_price")->where("id=".$v['goods_id'])->find();
-                //attrs用于获取商品的属性信息
-                //$v['goods_id']->find();
-                if ($user_id >= 0) {
-                    $v[] = 0;
-                    $cartList[] = $v;
-                } else {
-                    $v['attrs'] = $this->getAttrs($v['goods_id'], $v['goods_attr_id']);
-                    $cartList[] = $v;
-                }
+                //attrs用于获取商品的属性信息的。
+                $v['attrs'] = $this->getAttrs($v['goods_id'],$v['goods_attr_id']);
+                $cartList[] = $v;
             }
             return $cartList;
         }

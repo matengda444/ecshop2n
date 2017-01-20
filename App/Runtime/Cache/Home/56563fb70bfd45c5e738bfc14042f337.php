@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="/Public/Home/style/common.css" type="text/css">
 	<link rel="stylesheet" href="/Public/Home/style/bottomnav.css" type="text/css">
 	<link rel="stylesheet" href="/Public/Home/style/footer.css" type="text/css">
-
+	
 	<!--引入jqzoom css -->
 	<link rel="stylesheet" href="/Public/Home/style/jqzoom.css" type="text/css">
 
@@ -18,7 +18,7 @@
 	<script type="text/javascript" src="/Public/Home/js/header.js"></script>
 	<script type="text/javascript" src="/Public/Home/js/goods.js"></script>
 	<script type="text/javascript" src="/Public/Home/js/jqzoom-core.js"></script>
-
+	
 	<!-- jqzoom 效果 -->
 	<script type="text/javascript">
 		$(function(){
@@ -59,11 +59,11 @@
     </div>
 </div>
 	<!-- 顶部导航 end -->
-
+	
 	<div style="clear:both;"></div>
 
 	<!-- 头部 start -->
-	<!-- 头部 start -->
+    <!-- 头部 start -->
 <div class="header w1210 bc mt15">
     <!-- 头部上半部分 start 包括 logo、搜索、用户中心和购物车结算 -->
     <div class="logo w1210">
@@ -285,7 +285,7 @@
 			<h2>当前位置：<a href="">首页</a> > <a href="">电脑、办公</a> > <a href="">笔记本</a> > ThinkPad X230(23063T4）12.5英寸笔记本</h2>
 		</div>
 		<!-- 面包屑导航 end -->
-
+		
 		<!-- 主体页面左侧内容 start -->
 		<div class="goods_left fl">
 			<!-- 相关分类 start -->
@@ -373,7 +373,7 @@
 								<dd><a href="">ThinkPad E530c(33662D0) 15.6英寸笔记本电脑 （i5-3210M 4G 500G NV610M 1G独显 摄像头 Win8）</a></dd>
 								<dd><strong>￥4399.00</strong></dd>
 							</dl>
-						</li>
+						</li>					
 					</ul>
 				</div>
 			</div>
@@ -398,21 +398,21 @@
 
 		</div>
 		<!-- 主体页面左侧内容 end -->
-
+		
 		<!-- 商品信息内容 start -->
 		<div class="goods_content fl mt10 ml10">
 			<!-- 商品概要信息 start -->
 			<div class="summary">
-				<h3><strong><?php echo $goodsinfo['goods_name'] ?></strong></h3>
-
+				<h3><strong><?php echo $goodsinfo['goods_name']?></strong></h3>
+				
 				<!-- 图片预览区域 start -->
 				<div class="preview fl">
 					<div class="midpic">
-						<a href="/Public/Uploads/<?php echo $goodsinfo['goods_ori'] ?>" class="jqzoom" rel="gal1">   <!-- 第一幅图片的大图 class 和 rel属性不能更改 -->
-							<img src="/Public/Uploads/<?php echo $goodsinfo['goods_img'] ?>" alt="" />               <!-- 第一幅图片的中图 -->
+						<a href="/Public/Uploads/<?php echo $goodsinfo['goods_ori']?>" class="jqzoom" rel="gal1">   <!-- 第一幅图片的大图 class 和 rel属性不能更改 -->
+							<img src="/Public/Uploads/<?php echo $goodsinfo['goods_img']?>" alt="" />               <!-- 第一幅图片的中图 -->
 						</a>
 					</div>
-
+	
 					<!--使用说明：此处的预览图效果有三种类型的图片，大图，中图，和小图，取得图片之后，分配到模板的时候，把第一幅图片分配到 上面的midpic 中，其中大图分配到 a 标签的href属性，中图分配到 img 的src上。 下面的smallpic 则表示小图区域，格式固定，在 a 标签的 rel属性中，分别指定了中图（smallimage）和大图（largeimage），img标签则显示小图，按此格式循环生成即可，但在第一个li上，要加上cur类，同时在第一个li 的a标签中，添加类 zoomThumbActive  -->
 
 					<div class="smallpic">
@@ -427,43 +427,43 @@
 									<a href="javascript:void(0);" rel="{gallery: 'gal1', smallimage: 'images/preview_m2.jpg',largeimage: 'images/preview_l2.jpg'}"><img src="/Public/Home/images/preview_s2.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m3.jpg',largeimage: 'images/preview_l3.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m3.jpg',largeimage: 'images/preview_l3.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s3.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m4.jpg',largeimage: 'images/preview_l4.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m4.jpg',largeimage: 'images/preview_l4.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s4.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m5.jpg',largeimage: 'images/preview_l5.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m5.jpg',largeimage: 'images/preview_l5.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s5.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m6.jpg',largeimage: 'images/preview_l6.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m6.jpg',largeimage: 'images/preview_l6.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s6.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m7.jpg',largeimage: 'images/preview_l7.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m7.jpg',largeimage: 'images/preview_l7.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s7.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m8.jpg',largeimage: 'images/preview_l8.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m8.jpg',largeimage: 'images/preview_l8.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s8.jpg"></a>
 								</li>
 								<li>
-									<a href="javascript:void(0);"
-									rel="{gallery: 'gal1', smallimage: 'images/preview_m9.jpg',largeimage: 'images/preview_l9.jpg'}">
+									<a href="javascript:void(0);" 
+									rel="{gallery: 'gal1', smallimage: 'images/preview_m9.jpg',largeimage: 'images/preview_l9.jpg'}">  
 	    							<img src="/Public/Home/images/preview_s9.jpg"></a>
 								</li>
 							</ul>
 						</div>
-
+						
 					</div>
 				</div>
 				<!-- 图片预览区域 end -->
@@ -471,40 +471,26 @@
 				<!-- 商品基本信息区域 start -->
 				<div class="goodsinfo fl ml10">
 					<ul>
-						<li><span>商品编号： </span><?php echo $goodsinfo['goods_sn'] ?></li>
-						<li class="market_price"><span>定价：</span><em>￥<?php echo $goodsinfo['goods_sn'] * 1.3; ?></em></li>
-						<li class="shop_price"><span>本店价：</span> <strong>￥<?php echo $goodsinfo['shop_price'] ?></strong> <a href="">(降价通知)</a></li>
-						<li><span>上架时间：</span><?php echo date('Y-m-d', $goodsinfo['add_time']) ?></li>
+						<li><span>商品编号： </span><?php echo $goodsinfo['goods_sn']?></li>
+						<li class="market_price"><span>定价：</span><em>￥<?php echo $goodsinfo['shop_price']*1.3;?></em></li>
+						<li class="shop_price"><span>本店价：</span> <strong>￥<?php echo $goodsinfo['shop_price']?></strong> <a href="">(降价通知)</a></li>
+						<li><span>上架时间：</span><?php echo date('Y-m-d',$goodsinfo['add_time'])?></li>
 						<li class="star"><span>商品评分：</span> <strong></strong><a href="">(已有21人评价)</a></li> <!-- 此处的星级切换css即可 默认为5星 star4 表示4星 star3 表示3星 star2表示2星 star1表示1星 -->
 					</ul>
-					<form action="<?php echo U('Cart/addCart') ?>" method="post" class="choose">
+					<form action="<?php echo U('Cart/addCart')?>" method="post" class="choose">
 						<ul>
-							<?php foreach ($radiodata as $k => $v) { ?>
+                        <?php foreach($radiodata as $k=>$v){?>
 							<li class="product">
 								<dl>
-									<dt><?php echo $v[0]['attr_name'] ?>：</dt>
+									<dt><?php echo $v[0]['attr_name']?>：</dt>
 									<dd>
-										<?php foreach ($v as $k1 => $v1) { ?>
-										<a <?php if ($k1 == 0) {echo 'class="selected"';} ?> href="javascript:;"><?php echo $v1['attr_value'] ?>
-										<input type="radio" name="attr[<?php echo $k; ?>]" value="<?php echo $v1['id'] ?>" <?php if ($k1 == 0) {echo 'checked="checked"';} ?> /></a>
-										<?php  } ?>
+                                    <?php foreach($v as $k1=>$v1){?>
+										<a <?php if($k1==0){echo 'class="selected"';}?>  href="javascript:;"><?php echo $v1['attr_value']?> <input type="radio" name="attr[<?php echo $k;?>]" value="<?php echo $v1['id']?>" <?php if($k1==0){echo 'checked="checked"';}?> /></a>
+									<?php }?>	
 									</dd>
 								</dl>
 							</li>
-
-							<li class="product">
-								<dl>
-									<dt>版本：</dt>
-									<dd>
-										<a href="javascript:;">i3 4G内存版 <input type="radio" name="ver" value="" /></a>
-										<a href="javascript:;">i5 4G内存版 <input type="radio" name="ver" value=""  /></a>
-										<a class="selected" href="javascript:;">i5 8G内存版<input type="radio" name="ver" value="" checked="checked" /></a>
-										<a href="javascript:;">SSD超极本 <input type="radio" name="ver" value="" /></a>
-										<input type="hidden" name="" value="" />
-									</dd>
-								</dl>
-							</li>
-							<?php } ?>
+                        <?php }?>
 							<li>
 								<dl>
 									<dt>购买数量：</dt>
@@ -515,7 +501,7 @@
 									</dd>
 								</dl>
 							</li>
-							<input type="hidden" name="id" value="<?php echo $_GET['id']+0 ?>" />
+                            <input type="hidden" name="id" value="<?php echo $_GET['id']+0?>"/>
 							<li>
 								<dl>
 									<dt>&nbsp;</dt>
@@ -531,7 +517,7 @@
 				<!-- 商品基本信息区域 end -->
 			</div>
 			<!-- 商品概要信息 end -->
-
+			
 			<div style="clear:both;"></div>
 
 			<!-- 商品详情 start -->
@@ -548,9 +534,9 @@
 					<div class="introduce detail_div none">
 						<div class="attr mt15">
 							<ul>
-								<?php foreach ($uniquedata as $v) { ?>
-									<li><span><?php echo $v['attr_name'] ?>：</span><?php echo $v['attr_value'] ?></li>
-								<?php } ?>
+                                <?php foreach($uniquedata as $v){?>
+                                            <li><span><?php echo $v['attr_name']?>：</span><?php echo $v['attr_value']?></li>
+                                <?php }?>
 								<li><span>商品编号：</span>979631</li>
 								<li><span>品牌：</span>联想（Thinkpad）</li>
 								<li><span>上架时间：</span>2013-09-18 17:58:12</li>
@@ -586,7 +572,7 @@
 						</div>
 					</div>
 					<!-- 商品介绍 end -->
-
+					
 					<!-- 商品评论 start -->
 					<div class="comment detail_div mt10">
 						<div class="comment_summary">
@@ -764,13 +750,13 @@
 									</li>
 									<li>
 										<label for="">&nbsp;</label>
-										<input type="submit" value="提交评论"  class="comment_btn"/>
+										<input type="submit" value="提交评论"  class="comment_btn"/>										
 									</li>
 								</ul>
 							</form>
 						</div>
 						<!--  评论表单 end-->
-
+						
 					</div>
 					<!-- 商品评论 end -->
 
@@ -784,12 +770,12 @@
 
 						<div>
 							<h3>服务承诺：</h3>
-							<p>本商城向您保证所售商品均为正品行货，京西自营商品自带机打发票，与商品一起寄送。凭质保证书及京西商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由本商城联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。本商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！</p>
-
+							<p>本商城向您保证所售商品均为正品行货，京西自营商品自带机打发票，与商品一起寄送。凭质保证书及京西商城发票，可享受全国联保服务（奢侈品、钟表除外；奢侈品、钟表由本商城联系保修，享受法定三包售后服务），与您亲临商场选购的商品享受相同的质量保证。本商城还为您提供具有竞争力的商品价格和运费政策，请您放心购买！</p> 
+							
 							<p>注：因厂家会在没有任何提前通知的情况下更改产品包装、产地或者一些附件，本司不能确保客户收到的货物与商城图片、产地、附件说明完全一致。只能确保为原厂正货！并且保证与当时市场上同样主流新品一致。若本商城没有及时更新，请大家谅解！</p>
 
 						</div>
-
+						
 						<div>
 							<h3>权利声明：</h3>
 							<p>本商城上的所有商品信息、客户评价、商品咨询、网友讨论等内容，是京西商城重要的经营资源，未经许可，禁止非法转载使用。</p>
@@ -803,14 +789,14 @@
 			</div>
 			<!-- 商品详情 end -->
 
-
+			
 		</div>
 		<!-- 商品信息内容 end -->
-
+		
 
 	</div>
 	<!-- 商品页面主体 end -->
-
+	
 
 	<div style="clear:both;"></div>
 
@@ -827,7 +813,7 @@
 				<li><a href="">联系客服</a></li>
 			</ul>
 		</div>
-
+		
 		<div class="bnav2">
 			<h3><b></b> <em>配送方式</em></h3>
 			<ul>
@@ -839,7 +825,7 @@
 			</ul>
 		</div>
 
-
+		
 		<div class="bnav3">
 			<h3><b></b> <em>支付方式</em></h3>
 			<ul>

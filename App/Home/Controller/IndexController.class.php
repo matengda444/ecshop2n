@@ -40,10 +40,9 @@ class Indexcontroller extends Controller
             //说明自己就是子孙栏目
             $ids[] = $cat_id;//把自己的id天加到$ids数组里面
         //}
-        $goodsmodel = M('Goods');
+        $goodsmodel = M('Admin/Goods');
         $ids = implode(',', $ids);
-        $goodsdata = $goodsmodel->field("id, cat_id, goods_name, goods_thumb, shop_price")->where("cat_id in
-        ($ids)")->select();
+        $goodsdata = $goodsmodel->field("id,cat_id,goods_name,goods_thumb,shop_price")->where("cat_id in ($ids)")->select();
         $this->assign('goodsdata', $goodsdata);
         $this->display();
     }
